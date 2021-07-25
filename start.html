@@ -4,27 +4,29 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">  
-        <link href="css/style-start.css" rel="stylesheet">
-        <title>webpage name</title>
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/animation.js"></script>
+        <title>REarth - A Legenze Game</title>
     </head>
 
     <body>
-        <style>
-            body {
-                background-image: url();
-            }
-        </style>
+        <div class="background-image">
+            <img src="img/start.png" alt="start" width=100% height=100%>
+        </div>
 
-        <div class="center">
-            <table>
-                <tr>
-                    <th><button>SINGLE-PLAYER</button></th>
-                </tr>
+        <div class="center-box">
+            <div class="single-player-button" onclick="transitionToPage('levels.html')">
+                <p class="button-text-50">Single-Player</p>
+            </div>
 
-                <tr>
-                    <th><button>MULTI-PLAYER (COMING SOON)</button></th>
-                </tr>
-            </table>
+            <div class="multi-player-button">
+                <p class="button-text-50">Multi-Player</p>
+                <p class="button-text-10"> (Coming)</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2021.Legenze All rights reserved.</p>
         </div>
     </body>
 

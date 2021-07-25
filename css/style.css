@@ -1,0 +1,118 @@
+body { 
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+a {
+    color: black;
+}
+
+img {
+    object-fit: fill;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.copyright {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.center-box {
+    position: absolute;
+    top: 41%;
+    bottom: 22%;
+    left: 33%;
+    right: 33%;
+    width: 34%;
+}
+
+.single-player-button {
+    position: absolute;
+    top: 0;
+    bottom: 60%;
+    left: 0;
+    right: 0;
+    background-color: white;
+
+    padding: 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.multi-player-button {
+    position: absolute;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+
+    padding: 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.button-text-50 {
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.button-text-10 {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.levels-to-start-button {
+    position: absolute;
+    top: 4%;
+    bottom: 89%;
+    left: 5%;
+    right: 88%;
+    border: ;
+
+    cursor: pointer;
+}
+
+.levels-to-game-button {
+    position: absolute;
+    top: 88%;
+    bottom: 4%;
+    left: 8%;
+    right: 88%;
+    border: ;
+
+    cursor: pointer;
+}
+
+.chapter-name {
+    position: absolute;
+    top: 2%;
+    bottom: 87%;
+    left: 71%;
+    right: 3%;
+    border: ;
+
+    padding: ;
+    text-align: center;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+
+#start-background {
+
+}

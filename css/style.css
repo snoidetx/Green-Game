@@ -78,8 +78,8 @@ img {
 
 .levels-to-start-button {
     position: absolute;
-    top: 4%;
-    bottom: 89%;
+    top: 6%;
+    bottom: 87%;
     left: 5%;
     right: 88%;
     border: ;
@@ -89,8 +89,8 @@ img {
 
 .levels-to-game-button {
     position: absolute;
-    top: 88%;
-    bottom: 4%;
+    top: 86%;
+    bottom: 6%;
     left: 8%;
     right: 88%;
     border: ;
@@ -100,8 +100,8 @@ img {
 
 .chapter-name {
     position: absolute;
-    top: 2%;
-    bottom: 87%;
+    top: 4%;
+    bottom: 85%;
     left: 71%;
     right: 3%;
     border: ;

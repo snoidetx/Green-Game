@@ -18,12 +18,13 @@ const CITY_CONS = 1000 // city consumption, 一回合消耗1000 resource points,
 const FOREST_ECOB = 50 // forest recovery in terms of ecoImbalance
 const POWERP_ECOI = 200 // powerplant harm to ecobalance
 const SEA_REC = 200 // sea pollution self recovery
+const RES_PC = 0 //resource gained by clicking the dock, to be determined with 
 
 /*
 define all the variables here
 */
 
-var population, resourcePoints, techPoints, cityCapacity
+var population, resourcePoints, techPoints, cityCapacity;
 var earthquakeLikelihood, seaPollution, ecoImbalance, ecoImbalance;
 var numForest, numDock, numFarm, numPowerPlant, numCity; // should be able to read from the array of the map
 var round, numTech;
@@ -37,6 +38,9 @@ function initState() {
     numTechConstructed = 0 // techs on the map placed by the player (not inherited from the initial settin), including powerplant, farm, dock, city
     population = 5000
     cityCapacity = 6000
+    powerplantGain = 0 // TODO change later
+    farmGain = 0 // TODO change later
+    dockGain = 0 // TODO change later
     resourcePoints = 0
     earthquakeLikehood = 0
     seaPollution = 1000
@@ -45,6 +49,7 @@ function initState() {
     numForest = 5
     numFarm = 1
     numDock = 1
+    numCity = 1
 }
 
 function updateValues(arrayPerRound) {
@@ -53,7 +58,7 @@ function updateValues(arrayPerRound) {
     var resourcePoints_old = arrayPerRound[1];
     var ecoImbalance_old = arrayPerRound[4];
     var population_old = arrayPerRound[0];
-    var earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT
+    var earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT // aka when numPowerPlant + numFarm - numForest + numCity >= 1/EQ_COEFT, the game will terminate next round
     var population_new = (FERT_BASE + numTech / TECH_MAX * 0.5 - seaPollution / SEA_MAX + (cityCapcity - population_old) / cityCapacity) *
         population_old + population_old - randomDisaster(earthquakeLikelihood, population_old)
         // var population_new = (coefficient * (1 - population_old / cityCapacity) - seaPollution / SEA_MAX) * population_old + population_old - randomDisaster(earthquakeLikelihood)
@@ -70,15 +75,21 @@ function updateValues(arrayPerRound) {
 // not really verified method of generating normally distributed values in js, credit given to https://mika-s.github.io/javascript/random/normal-distributed/2019/05/15/generating-normally-distributed-random-numbers-in-javascript.html
 
 function randomDisaster(p, n) {
-    mean = n * p;
-    variance = n * p * (1 - p); // here uses a binomial distribution variance, but variance correlates with distribution of population on the map might be more favoruable, this requires access to map
-    stdev = Math.sqrt(variance);
+    if (0 < p < 1) {
+        mean = n * p;
+        variance = n * p * (1 - p); // here uses a binomial distribution variance, but variance correlates with distribution of population on the map might be more favoruable, this requires access to map
+        stdev = Math.sqrt(variance);
 
-    // boxMullerTransform
-    const u1 = Math.random();
-    const u2 = Math.random();
-    const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
-    return z0 * stddev + mean;
+        // boxMullerTransform
+        const u1 = Math.random();
+        const u2 = Math.random();
+        const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+        return z0 * stddev + mean;
+    } else if (p <= 0) {
+        return 0;
+    } else {
+        return n;
+    }
 
 }
 

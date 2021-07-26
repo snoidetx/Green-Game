@@ -14,15 +14,18 @@ const EQ_COEFT = 5 // tmp defined
 const DOCK_POLL = 100
 const CITY_POLL = 200
 const CITY_CONS = 1000 // city consumption, 一回合消耗1000 resource points, 能linear about population 更好
-
-/*
-define all the variables here
-*/
+const FOREST_ECOB = 50 // forest recovery in terms of ecoImbalance
+const POWERP_ECOI = 200 // powerplant harm to ecobalance
+    /*
+    define all the variables here
+    */
 
 var population, resourcePoints, techPoints, cityCapacity
 var earthquakeLikelihood, seaPollution, ecoImbalance, ecoImbalance;
 var numForest, numDock, numFarm, numPowerPlant, numCity; // should be able to read from the array of the map
 var round, numTech;
+var powerplantGain, farmGain, dockGain;
+var conservation; // total effect of conservation achieved by technology
 var arrayPerRound = [population, resourcePoints, earthquakeLikelihood, seaPollution, ecoImbalance, techPoints]; // not sure whether this is a best practice
 
 function initState() {
@@ -34,9 +37,8 @@ function initState() {
     resourcePoints = 0
     earthquakeLikehood = 0
     seaPollution = 1000
-    cityCapacity = 6000
     ecoImbalance = 1000
-    numPowerPlant = 1 // initial powerplant produces 200 resource points per round, not sure where to put this line, this should be included as the attribute of tech
+    numPowerPlant = 1
     numForest = 5
     numFarm = 1
     numDock = 1
@@ -55,7 +57,7 @@ function updateValues(arrayPerRound) {
     var seaPollution_new = (seaPollution_old + DOCK_POLL * numDock + CITY_POLL * numCity) * 1.01 - 200 - conservation
         // dock 是码头 city是城镇 每回合码头和城镇都会对海洋产生污染 每回合海洋自己可以修复200
 
-    var ecoImbalance_new = ecoImbalance_old + CITY_POLL * numCity + powerplant - forest * numForest - conservation
+    var ecoImbalance_new = ecoImbalance_old + CITY_POLL * numCity + POWERP_ECOI * numPowerPlant - FOREST_ECOB * numForest - conservation
     var resourcePoints_new = resourcePoints_old - cityConsumption + powerplantGain + farmlandlGain + dockGain
 
     var techPoints_new = arrayPerRound[5] + population_old * TECH_POP_COEFT + qnsAnswered
@@ -67,6 +69,7 @@ function updateValues(arrayPerRound) {
 // functions of how adding/removing an item affect resource/tech point and other variables
 function addLevelOneCity() {
     // an example
+    cityCapacity += 6000
 }
 
 function restart() {

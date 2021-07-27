@@ -21,6 +21,15 @@ const SEA_REC = 250 // sea pollution self recovery
 const RES_PC = 0 //resource gained by clicking the dock, to be determined with 
 const SEA_MIN = 600
     // TODO 增加population的上限
+const FARM1_TP = 2 // TP 是需要多少tech points解锁
+const DOCK1_TP = 4
+const LANDCLEAR1_TP = 1
+const POWERPLANT1_TP = 4
+const POWERPLANT2_TP = 12
+const POWERPLANT3_TP = 30
+const CITY1_TP = 5
+const CITY2_TP = 12
+const CITY3_TP = 40
 
 /*
 define all the variables here

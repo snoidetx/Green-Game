@@ -5,10 +5,10 @@ define all the constants here
 */
 const TECH_POP_COEFT = 0.2 // techpoints generated per capital
 const SEA_MAX = 1500 // termination condition concerning sea pollution
-const POP_MIN = 1;
+const POP_MIN = 10;
 const ECO_MAX = 2000;
 const RD_MAX, RD_MIN; // TODO define termination condition in terms of time scale
-const TECH_MAX = 46 // tmp defined
+const TECH_MAX = 40 // tmp defined
 const FERT_BASE = 0.5 // TODO suggest to set to 0, this determines the average maximum popultion under the current citycapacity, eg. o.5 fert-base corresponds to 1.5 * city capacity
 const MORT_BASE = 0.5 // may remove later
 const EQ_COEFT = 0.1 // tmp defined
@@ -41,7 +41,26 @@ var numForest, numDock, numFarm, numPowerPlant, numCity; // should be able to re
 var round, numTech;
 var resourceGain, techGain;
 var conservation; // total effect of conservation achieved by technology
-var arrayPerRound = [population, resourcePoints, earthquakeLikelihood, seaPollution, ecoImbalance, techPoints]; // not sure whether this is a best practice
+ // not sure whether this is a best practice
+var yearCount = 0
+
+function main() {
+    //infinite loop telling when to terminate, 
+    initState()
+    while (True) {
+        //玩家操作 拖拽，答题等
+        updateValues(arrayPerRound)
+        randomDisaster(arrayPerRound[2])
+        if (arrayPerRound[0] < POP_MIN) {
+            return "Simulation fails due to too low population."
+        }else if (arrayPerRound[3] > SEA_MAX) {
+            return "Simulation fails due to too high sea pollution."
+        }else if (arrayPerRound[4] > ECO_MAX) {
+            return "Simulation fails due to too great ecosystem Imbalance."
+        }else {
+               yearCount +=10}
+    }
+}
 
 function initState() {
     // assign initial value to all the variables here
@@ -53,7 +72,7 @@ function initState() {
     farmGain = 0 // TODO change later
     dockGain = 0 // TODO change later
     techGain = 5
-    resourcePoints = 0
+    resourcePoints = 500
     earthquakeLikehood = 0
     seaPollution = 1000
     ecoImbalance = 0
@@ -63,6 +82,7 @@ function initState() {
     numDock = 1
     numCity = 1
     numClickDock = 0 //TODO add the function of clicking dock
+    arrayPerRound = [population, resourcePoints, earthquakelikelihood, seaPollution, econImbalance, techPoints]
 }
 
 function updateValues(arrayPerRound) {

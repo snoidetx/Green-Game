@@ -62,7 +62,7 @@ function main() {
     initState()
     while (True) {
         //玩家操作 拖拽，答题等
-        updateValues(arrayPerRound)
+        arrayPerRound = updateValues(arrayPerRound)
         checkState(arrayPerRound)
     }
 }

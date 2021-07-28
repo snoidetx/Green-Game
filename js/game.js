@@ -109,7 +109,8 @@ function updateValues(arrayPerRound) {
     var resourcePoints_new = resourcePoints_old + resourceGain
 
     var techPoints_new = arrayPerRound[5] + techGain + qnsAnswered
-    var arrayPerRound = [population_new, resourcePoints_new, earthquakeLikelihood, seaPollution_new, ecoImbalance_new, techPoints_new] // 建议print的时候有个和上一轮的对比
+    var arrayPerRound = [population_new, resourcePoints_new, earthquakeLikelihood, seaPollution_new, ecoImbalance_new, techPoints_new] 
+    return arrayPerRound // 建议print的时候有个和上一轮的对比
 }
 
 // not really verified method of generating normally distributed values in js, credit given to https://mika-s.github.io/javascript/random/normal-distributed/2019/05/15/generating-normally-distributed-random-numbers-in-javascript.html
@@ -192,8 +193,7 @@ Tech.prototype.apply = function(position) {
         resourceGain += this.gain; //TODO change to resourceGain
         if (this.type != "dock") {
             techGain += this.tech
-        }else {
-            techGain += this.tech * numClickDock}
+        }
         popCapacity += this.popCap
         if (this.type != "forest") {
             numTech += 1
@@ -218,4 +218,5 @@ function restart() {
 function clickNum() {
     // 玩家点击 的function
     numDock++
+    arrayPerRound[1] += 1000
 }

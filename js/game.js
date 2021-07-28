@@ -44,21 +44,26 @@ var conservation; // total effect of conservation achieved by technology
  // not sure whether this is a best practice
 var yearCount = 0
 
+function checkState() {
+    if (arrayPerRound[0] < POP_MIN) {
+            return "Simulation fails due to too low population."
+        }else if (arrayPerRound[3] > SEA_MAX) {
+            return "Simulation fails due to too high sea pollution."
+        }else if (arrayPerRound[4] > ECO_MAX) {
+            return "Simulation fails due to too great ecosystem Imbalance."
+        }else if (arrayPerRound[0] > 50000 && yearCount >= 200) {
+            return "Simulation Success"
+        }else {
+               yearCount +=10}
+}
+
 function main() {
     //infinite loop telling when to terminate, 
     initState()
     while (True) {
         //玩家操作 拖拽，答题等
         updateValues(arrayPerRound)
-        randomDisaster(arrayPerRound[2])
-        if (arrayPerRound[0] < POP_MIN) {
-            return "Simulation fails due to too low population."
-        }else if (arrayPerRound[3] > SEA_MAX) {
-            return "Simulation fails due to too high sea pollution."
-        }else if (arrayPerRound[4] > ECO_MAX) {
-            return "Simulation fails due to too great ecosystem Imbalance."
-        }else {
-               yearCount +=10}
+        checkState(arrayPerRound)
     }
 }
 
@@ -207,28 +212,4 @@ function restart() {
     initState();
 }
 
-function checkState() {
-    // check if goal is achieved/terminating condition is met
-}
 
-function main() {
-    initState();
-
-    while (true) {
-        updateValues();
-
-        // then player will trigger a series of actions
-
-        if (player clicks next round) {
-            checkState();
-            if (goal is achieved) {
-                show mission completed;
-            } else if (terminating condition is met) {
-                show mission failed;
-            } else {
-                continue;
-            }
-        }
-    }
-
-}

@@ -191,21 +191,24 @@ function checkState() {
     // check if goal is achieved/terminating condition is met
 }
 
-initState();
+function main() {
+    initState();
 
-while (true) {
-    updateValues();
+    while (true) {
+        updateValues();
 
-    // then player will trigger a series of actions
+        // then player will trigger a series of actions
 
-    if (player clicks next round) {
-        checkState();
-        if (goal is achieved) {
-            show mission completed;
-        } else if (terminating condition is met) {
-            show mission failed;
-        } else {
-            continue;
+        if (player clicks next round) {
+            checkState();
+            if (goal is achieved) {
+                show mission completed;
+            } else if (terminating condition is met) {
+                show mission failed;
+            } else {
+                continue;
+            }
         }
     }
+
 }

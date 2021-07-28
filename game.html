@@ -7,7 +7,6 @@
         <link href="css/style.css" rel="stylesheet">
         <script src="js/animation.js"></script>
         <script src="js/game.js"></script>
-        <script src="js/graph.js"></script>
         <title>REarth - A Legenze Game</title>
     </head>
 
@@ -181,7 +180,9 @@
             </div>
         </div>
 
-
+        <div id="shovel-box" onclick="setShovel()" onmouseover="showSelect('shovel-box')" onmouseout="hideSelect('shovel-box')">
+            <p>shovel</p>
+        </div>
         <div id="profile-box" onclick="showQuit()" onmouseover="showSelect('profile-box')" onmouseout="hideSelect('profile-box')"></div>
         <div id="time-box">
             <p id="time">0 year</p>
@@ -195,7 +196,7 @@
         <div id="tech-point-box">
             <p id="tech-point">5</p>
         </div>
-        <div id="next-round-box" onmouseover="showSelect('next-round-box')" onmouseout="hideSelect('next-round-box')"></div>
+        <div id="next-round-box" onclick="nextRound()" onmouseover="showSelect('next-round-box')" onmouseout="hideSelect('next-round-box')"></div>
         <div id="quiz-box" onclick="showQuiz()" onmouseover="showSelect('quiz-box')" onmouseout="hideSelect('quiz-box')"></div>
         <div id="list-box" onclick="showList()" onmouseover="showSelect('list-box')" onmouseout="hideSelect('list-box')"></div>
         <div id="tech-box" onclick="showTech()" onmouseover="showSelect('tech-box')" onmouseout="hideSelect('tech-box')"></div>

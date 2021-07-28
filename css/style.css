@@ -87,7 +87,6 @@ p {
     bottom: 87%;
     left: 5%;
     right: 88%;
-    border: ;
 
     cursor: pointer;
 }
@@ -98,7 +97,6 @@ p {
     bottom: 6%;
     left: 8%;
     right: 88%;
-    border: ;
 
     cursor: pointer;
 }
@@ -109,9 +107,7 @@ p {
     bottom: 85%;
     left: 71%;
     right: 3%;
-    border: ;
 
-    padding: ;
     text-align: center;
     
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -253,6 +249,17 @@ p {
     cursor: pointer;
 }
 
+#shovel-box {
+    position: absolute;
+    top: 73.5%;
+    bottom: 16.5%;
+    left: 90.7%;
+    right: 0;
+    border: 3px solid black;
+
+    cursor: pointer;
+}
+
 .center-popout-box {
     position: absolute;
     top: 11.2%;
@@ -311,24 +318,6 @@ p {
 .icon {
     position: absolute; 
     bottom: 0; 
-}
-
-.rhombus {
-    /*
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: -11.72px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80px;
-    height: 80px;
-    transform: scale(1, 0.5) rotate(45deg);
-    border: 3px solid white;
-
-    cursor: pointer;
-    */
 }
 
 .rhombus-holder {

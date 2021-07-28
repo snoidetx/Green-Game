@@ -190,7 +190,10 @@ Tech.prototype.apply = function(position) {
     } else {
         resourcePoints -= this.price;
         resourceGain += this.gain; //TODO change to resourceGain
-        techGain += this.tech;
+        if (this.type != "dock") {
+            techGain += this.tech
+        }else {
+            techGain += this.tech * numClickDock}
         popCapacity += this.popCap
         if (this.type != "forest") {
             numTech += 1
@@ -212,4 +215,7 @@ function restart() {
     initState();
 }
 
-
+function clickNum() {
+    // 玩家点击 的function
+    numDock++
+}

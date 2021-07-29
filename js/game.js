@@ -142,7 +142,7 @@ function hideSelect(name) {
 }
 
 var hasSetRhombus = false;
-const coordArray = ["002", "006", "101", "103", "107", "109", "202", "204", "210", "212", "311", "313", "412", "507", "511", "812", "901", "903", "905", "911", "1002", "1004", "1006", "1008", "1010", "1101", "1103", "1105", "1107", "1109", "1111", "1202", "1204", "1206", "1208", "1210", "1303", "1305", "1307", "1309"];
+const coordArray = ["002", "006", "101", "103", "107", "109", "202", "204", "210", "212", "311", "313", "412", "507", "511", "812", "901", "903", "905", "911", "1002", "1004", "1006", "1008", "1010", "1101", "1103", "1105", "1107", "1109", "1111", "1202", "1204", "1206", "1208", "1210", "1303", "1305", "1307", "1309", "713", "913", "1012", "1212", "1311"];
 
 function addRhombus() {
     for (let i = 0; i < coordArray.length; i++) {
@@ -158,6 +158,7 @@ function addRhombus() {
 function setRhombus() {
     if (hasSetRhombus) return;
     initState();
+    iconWidth = document.getElementById("rh-313").children[0].width;
     hasSetRhombus = true;
     addRhombus();
     for (let i = 0; i <= 13; i++) {
@@ -191,7 +192,7 @@ function setRhombus() {
             rh.style.border = "3px hidden white";
             rh.style.opacity = 0.6;
             rh.style.cursor = "pointer";
-            rh.onclick = function() { actEvent("rh-" + row + col) };
+            rh.onclick = function() { actEvent(row + col) };
         }
     }
 }
@@ -203,13 +204,16 @@ function printText() {
     document.getElementById("item-list").innerHTML = text;
 }
 
-var iconWidth = 0;
+var iconWidth;
 // what happens to a grid
 function actEvent(name) {
     // alert(onHand);
-    let ele = document.getElementById(name);
+    let ele = document.getElementById("rh-" + name);
+    let isDock = beach_arr.includes(name);
     let child = ele.children[0];
-    if (onHand == null) {
+    if (onHand == null && isDock && ele.children.length != 0) {
+        clickDock();
+    } else if (onHand == null) {
         return;
     } else if (onHand == "shovel") {
         if (ele.children.length == 0) {
@@ -217,7 +221,6 @@ function actEvent(name) {
             return;
         }
         let imgOld = ele.children[0];
-        iconWidth = imgOld.width;
         let itemName = imgOld.alt;
         ele.removeChild(ele.children[0]);
         if (itemName == "forest") numForest--;
@@ -227,7 +230,7 @@ function actEvent(name) {
         if (itemName == "powerplant") powerplant1.remove();
         onHand = null;
     } else if (onHand == "city") {
-        if (ele.children.length != 0) {
+        if (ele.children.length != 0 || isDock) {
             onHand = null;
             return;
         }
@@ -241,7 +244,7 @@ function actEvent(name) {
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "farm") {
-        if (ele.children.length != 0) {
+        if (ele.children.length != 0 || isDock) {
             onHand = null;
             return;
         }
@@ -254,7 +257,7 @@ function actEvent(name) {
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "dock") {
-        if (ele.children.length != 0) {
+        if (ele.children.length != 0 || !isDock) {
             onHand = null;
             return;
         }
@@ -267,7 +270,7 @@ function actEvent(name) {
         img.className = "icon";
         onHand = null;
     } else if (onHand == "powerplant") {
-        if (ele.children.length != 0) {
+        if (ele.children.length != 0 || isDock) {
             onHand = null;
             return;
         }
@@ -300,7 +303,7 @@ const DOCK_POLL = 100;
 const CITY_POLL = 200;
 const FOREST_ECOB = 50;
 const POWERP_ECOI = 200;
-const beach_array = [];
+const beach_arr = ["713", "913", "1012", "1212", "1311"];
 
 var year, population;
 var numTech = 0;

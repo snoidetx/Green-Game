@@ -445,6 +445,14 @@ p {
     right: 56.25%;
 }
 
+#rh-713 {
+    position: absolute;
+    top: 0;
+    bottom: 5.88%;
+    left: 43.75%;
+    right: 43.75;
+}
+
 #rh-812 {
     position: absolute;
     top: 0;
@@ -485,6 +493,14 @@ p {
     right: 31.25%;
 }
 
+#rh-913 {
+    position: absolute;
+    top: 0;
+    bottom: 5.88%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
 #rh-1002 {
     position: absolute;
     top: 0;
@@ -521,6 +537,14 @@ p {
     position: absolute;
     top: 0;
     bottom: 23.53%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1012 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
     left: 62.5%;
     right: 25%;
 }
@@ -613,6 +637,14 @@ p {
     right: 12.5%;
 }
 
+#rh-1212 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 75%;
+    right: 12.5%;
+}
+
 #rh-1303 {
     position: absolute;
     top: 0;
@@ -641,6 +673,14 @@ p {
     position: absolute;
     top: 0;
     bottom: 29.41%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+#rh-1309 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
     left: 81.25%;
     right: 6.25%;
 }

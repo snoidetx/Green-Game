@@ -120,6 +120,7 @@ function addRhombus() {
 
 function setRhombus() {
     if (hasSetRhombus) return;
+    initState();
     hasSetRhombus = true;
     addRhombus();
     for (let i = 0; i <= 13; i++) {
@@ -158,7 +159,7 @@ function setRhombus() {
     }
 }
 
-
+// what happens to a grid
 function actEvent(name) {
     let ele = document.getElementById(name);
     let child = ele.children[0];
@@ -168,6 +169,142 @@ function actEvent(name) {
         ele.removeChild(ele.childNodes[0]);
     }
 }
+
+// below are regarding game core
+
+const POP_MIN = 10;
+const ECO_MAX = 2000;
+const SEA_MAX = 1500;
+const TECH_MAX = 40;
+const FERT_BASE = 0.5;
+const EQ_COEFT = 0.1;
+const SEA_REC = 200;
+const SEA_MIN = 600;
+const popCapacity = 0;
+const DOCK_POLL = 100;
+const CITY_POLL = 200;
+const FOREST_ECOB = 50;
+const POWERP_ECOI = 200;
+const beach_array = [];
+
+var year, population;
+var numTech = 0;
+var numDock = 0;
+var numFarm = 0;
+var numPowerPlant = 0;
+var numCity = 0;
+var numForest = 0;
+var resourceGain = 0;
+var popCapacity = 0;
+var techGain = 0;
+var resourcePoints = 0;
+var techPoints = 0;
+var earthquakeLikelihood, seaPollution, ecoImbalance;
+var arr;
+var conservation, numClickDock, qnsAnswered;
+
+function initState() {
+    alert("yes");
+    numTech = 0;
+    numDock = 0;
+    numFarm = 0;
+    numPowerPlant = 0;
+    numCity = 0;
+    numForest = 0;
+    resourceGain = 0;
+    popCapacity = 0;
+    techGain = 0;
+    resourcePoints = 0;
+    techPoints = 0;
+    earthquakeLikelihood = 0;
+    seaPollution = 1000;
+    ecoImbalance = 0;
+    arr = [population, year, earthquakeLikelihood, seaPollution, ecoImbalance];
+    // return arr;
+}
+
+function nextRound() {
+    updateValues();
+    document.getElementById("time").innerHTML = arr[1];
+    document.getElementById("population").innerHTML = arr[0];
+    document.getElementById("resource-point").innerHTML = resourcePoints;
+    document.getElementById("tech-point").innerHTML = techPoints;
+    checkState();
+}
+
+function resetOnclickGain() {
+    conservation = 0;
+    numClickDock = 0;
+    qnsAnswered = 0;
+}
+
+def checkState() {
+    if (arr[0] < POP_MIN) {
+        return "ERROR_0";
+    } else if (arr[3] > SEA_MAX) {
+        return "ERROR_1";
+    } else if (arr[4] > ECO_MAX) {
+        return "ERROR_2";
+    } else if (arr[0] > 50000 && arr[1] >= 200) {
+        return "SUCCESS";
+    } else { }
+}
+
+def randomDisaster(p, n) {
+    if (p > 0 && p < 1) {
+        let mean = n * p;
+        let variance = n * p * (1 - p);
+        let stddev = Math.sqrt(variance);
+        let u1 = Math.random();
+        let u2 = Math.random();
+        let z0 = Math.sqrt(-2 * log(u1)) * conservation(2 * Math.PI * u2);
+        return z0 * stddev + mean;
+    } else if (p <= 0) {
+        return 0;
+    } else {
+        return n;
+    }
+}
+
+def updateArray() {
+    let populationOld = arr[0];
+    let seaPollutionOld = arr[3];
+    earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT;
+    let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old)/popCapacity) + population_old - randomDisaster(earthquakeLikelihood, population_old);
+    let ecoImbalance_old = arr[4];
+    let seaPollution_new = (seaPollution_old + DOCK_POLL * numClickDock + CITY_POLL * numCity) * 1.01 - SEA_REC - conservation;
+    if (seaPollution_new < SEA_MIN) {
+        seaPollution_new = SEA_MIN;
+    }
+    let ecoImbalance_new = ecoImbalance_old + CITY_POLL * numCity + POWERP_ECOI * numPowerPlant - FOREST_ECOB * numForest - conservation;
+
+    techPoints += techGain + qnsAnswered;
+
+    resourcePoints += resourceGain;
+
+    year = arr[1];
+    year += 10;
+    let techPoints_new = arr[5] + techGain + qnsAnswered;
+    arr = [pop_new,year, earthquakeLikelihood, seaPollution_new, ecoImbalance_new];
+}
+
+def clickDock() {
+    numClickDock++;
+    resourcePoints += 1000;
+}
+
+def answerQns() {
+    qnsAnswered++;
+}
+
+def conserve() {
+    resourcePoints -= 500;
+    conservation = 100;
+}
+
+
+
+
 /*
 
 function initState() {

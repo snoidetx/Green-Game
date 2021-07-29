@@ -8,6 +8,42 @@ function setShovel() {
     }
 }
 
+function setCity() {
+    showTech();
+    if (onHand != "city") {
+        onHand = "city";
+    } else {
+        onHand = null;
+    }
+}
+
+function setFarm() {
+    showTech();
+    if (onHand != "farm") {
+        onHand = "farm";
+    } else {
+        onHand = null;
+    }
+}
+
+function setDock() {
+    showTech();
+    if (onHand != "dock") {
+        onHand = "dock";
+    } else {
+        onHand = null;
+    }
+}
+
+function setPower() {
+    showTech();
+    if (onHand != "powerplant") {
+        onHand = "powerplant";
+    } else {
+        onHand = null;
+    }
+}
+
 
 // the following are regarding GUI
 
@@ -161,12 +197,48 @@ function setRhombus() {
 
 // what happens to a grid
 function actEvent(name) {
+    // alert(onHand);
     let ele = document.getElementById(name);
     let child = ele.children[0];
     if (onHand == null) {
         return;
     } else if (onHand == "shovel") {
-        ele.removeChild(ele.childNodes[0]);
+        ele.removeChild(ele.children[0]);
+        onHand = null;
+    } else if (onHand == "city") {
+        ele.removeChild(ele.children[0]);
+        let img = document.createElement("img");
+        img.src = "img/city.png";
+        img.width = "100%";
+        img.className = "icon";
+        ele.appendChild(img);
+        onHand = null;
+    } else if (onHand == "farm") {
+        ele.removeChild(ele.children[0]);
+        let img = document.createElement("img");
+        img.src = "img/farm.png";
+        img.width = "100%";
+        img.className = "icon";
+        ele.appendChild(img);
+        onHand = null;
+    } else if (onHand == "dock") {
+        ele.removeChild(ele.children[0]);
+        let img = document.createElement("img");
+        img.src = "img/dock.png";
+        ele.appendChild(img);
+        img.width = "100%";
+        img.className = "icon";
+        onHand = null;
+    } else if (onHand == "powerplant") {
+        ele.removeChild(ele.children[0]);
+        let img = document.createElement("img");
+        img.src = "img/powerplant.png";
+        img.width = "100%";
+        img.className = "icon";
+        ele.appendChild(img);
+        onHand = null;
+    } else {
+        return;
     }
 }
 
@@ -180,7 +252,6 @@ const FERT_BASE = 0.5;
 const EQ_COEFT = 0.1;
 const SEA_REC = 200;
 const SEA_MIN = 600;
-const popCapacity = 0;
 const DOCK_POLL = 100;
 const CITY_POLL = 200;
 const FOREST_ECOB = 50;
@@ -201,30 +272,31 @@ var resourcePoints = 0;
 var techPoints = 0;
 var earthquakeLikelihood, seaPollution, ecoImbalance;
 var arr;
-var conservation, numClickDock, qnsAnswered;
+var conservation = 0, numClickDock = 0, qnsAnswered = 0;
 
 function initState() {
-    alert("yes");
     numTech = 0;
     numDock = 0;
     numFarm = 0;
     numPowerPlant = 0;
     numCity = 0;
-    numForest = 0;
+    numForest = 40;
     resourceGain = 0;
-    popCapacity = 0;
+    popCapacity = 6000; // 0
     techGain = 0;
-    resourcePoints = 0;
+    resourcePoints = 500;
     techPoints = 0;
     earthquakeLikelihood = 0;
     seaPollution = 1000;
     ecoImbalance = 0;
+    year = 0;
+    population = 5000;
     arr = [population, year, earthquakeLikelihood, seaPollution, ecoImbalance];
-    // return arr;
 }
 
 function nextRound() {
     updateValues();
+    // alert(arr[1] + ",,," + arr[0] + ",,," + resourcePoints + ",,,"+ techPoints + ",,,");
     document.getElementById("time").innerHTML = arr[1];
     document.getElementById("population").innerHTML = arr[0];
     document.getElementById("resource-point").innerHTML = resourcePoints;
@@ -238,7 +310,7 @@ function resetOnclickGain() {
     qnsAnswered = 0;
 }
 
-def checkState() {
+function checkState() {
     if (arr[0] < POP_MIN) {
         return "ERROR_0";
     } else if (arr[3] > SEA_MAX) {
@@ -247,10 +319,10 @@ def checkState() {
         return "ERROR_2";
     } else if (arr[0] > 50000 && arr[1] >= 200) {
         return "SUCCESS";
-    } else { }
+    }
 }
 
-def randomDisaster(p, n) {
+function randomDisaster(p, n) {
     if (p > 0 && p < 1) {
         let mean = n * p;
         let variance = n * p * (1 - p);
@@ -266,11 +338,11 @@ def randomDisaster(p, n) {
     }
 }
 
-def updateArray() {
-    let populationOld = arr[0];
-    let seaPollutionOld = arr[3];
+function updateValues() {
+    let population_old = arr[0];
+    let seaPollution_old = arr[3];
     earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT;
-    let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old)/popCapacity) + population_old - randomDisaster(earthquakeLikelihood, population_old);
+    let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old)/popCapacity) * population_old + population_old - randomDisaster(earthquakeLikelihood, population_old);
     let ecoImbalance_old = arr[4];
     let seaPollution_new = (seaPollution_old + DOCK_POLL * numClickDock + CITY_POLL * numCity) * 1.01 - SEA_REC - conservation;
     if (seaPollution_new < SEA_MIN) {
@@ -285,24 +357,80 @@ def updateArray() {
     year = arr[1];
     year += 10;
     let techPoints_new = arr[5] + techGain + qnsAnswered;
-    arr = [pop_new,year, earthquakeLikelihood, seaPollution_new, ecoImbalance_new];
+    arr = [pop_new, year, earthquakeLikelihood, seaPollution_new, ecoImbalance_new];
 }
 
-def clickDock() {
+function clickDock() {
     numClickDock++;
     resourcePoints += 1000;
 }
 
-def answerQns() {
+function answerQns() {
     qnsAnswered++;
 }
 
-def conserve() {
+function conserve() {
     resourcePoints -= 500;
     conservation = 100;
 }
 
+function Tech(type = "forest", level = 1, techGen=0, resourceGen=0, price=500, numNeg=1, popCap=0) {
+    this.type = type;
+    this.level = level;
+    this.tech = techGen;
+    this.gain = resourceGen;
+    this.price = price;
+    this.popCap = popCap; 
+    this.num = numNeg;
+}
 
+city1 = Tech("city", 1, 5, resourceGen = -1000, price = 1000, numNeg = 1, popCap = 6000)
+city2 = Tech("city", 2, 7, resourceGen = -1200, price = 1500, numNeg = 1.2, popCap = 8000) // may not be used in tutorial
+city3 = Tech("city", 3, 9, resourceGen = -1300, price = 2000, numNeg = 1.3, popCap = 12000) // may not be used in tutorial
+powerplant1 = Tech("powerplant", 1, 0, resourceGen = 1200, price = 800)
+powerplant2 = Tech("powerplant", 2, 0, resourceGen = 3000, price = 1500, numNeg = 0.75) // may not be used in tutorial
+powerplant3 = Tech("powerplant", 3, 0, resourceGen = 10000, price = 3000, numNeg = 0.3) // may not be used in tutorial
+dock1 = Tech("dock", 1, 0, resourceGen = 1000, price = 600, numNeg = 1)
+farm1 = Tech("farm", 1, 0, resourceGen = 200, price = 200, numNeg = 1, popCap = 1000) // 0 tech, unlocked when initialized
+
+Tech.prototype.apply = function() {
+    //if (this.type == "dock" && wrong position) {
+    //    alert("Dock cannot be built here.");
+    //} else {
+    resourcePoints -= this.price;
+    resourceGain += this.gain;
+    popCapacity += this.popCap;
+    techGain += this.tech;
+    if (this.type != "forest") {
+        numTech += 1;
+    } else if (this.type == "dock") {
+        numDock += this.num;
+    } else if (this.type == "powerplant") {
+        numPowerPlant += this.num;
+    } else if (this.type == "city") {
+        numCity += this.num;
+    } else if (this.type == "farm") {
+        numFarm += this.num;
+    }
+}
+
+Tech.prototype.remove = function() {
+    // resourcePoints -= this.price;
+    resourceGain -= this.gain;
+    popCapacity -= this.popCap;
+    techGain -= this.tech;
+    if (this.type != "forest") {
+        numTech -= 1;
+    } else if (this.type == "dock") {
+        numDock -= this.num;
+    } else if (this.type == "powerplant") {
+        numPowerPlant -= this.num;
+    } else if (this.type == "city") {
+        numCity -= this.num;
+    } else if (this.type == "farm") {
+        numFarm -= this.num;
+    }
+}
 
 
 /*

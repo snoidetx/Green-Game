@@ -194,7 +194,7 @@
             <p id="resource-point">500</p>
         </div>
         <div id="tech-point-box">
-            <p id="tech-point">5</p>
+            <p id="tech-point">0</p>
         </div>
         <div id="next-round-box" onclick="nextRound()" onmouseover="showSelect('next-round-box')" onmouseout="hideSelect('next-round-box')"></div>
         <div id="quiz-box" onclick="showQuiz()" onmouseover="showSelect('quiz-box')" onmouseout="hideSelect('quiz-box')"></div>
@@ -216,6 +216,10 @@
 
         <div class="center-popout-box" id="tech-popout-box">
             <img src="img/screen.png" alt="book" width=auto height=100%>
+            <div class="item-button" id="city-1" onclick="setCity()"></div>
+            <div class="item-button" id="farm-1" onclick="setFarm()"></div>
+            <div class="item-button" id="dock-1" onclick="setDock()"></div>
+            <div class="item-button" id="power-1" onclick="setPower()"></div>
         </div>
 
     </body>

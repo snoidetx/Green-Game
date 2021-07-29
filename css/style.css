@@ -644,3 +644,40 @@ p {
     left: 81.25%;
     right: 6.25%;
 }
+
+.item-button {
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+#city-1 {
+    position: absolute;
+    top: 30%;
+    bottom: 60%;
+    left: 40%;
+    right: 55%;
+}
+
+#dock-1 {
+    position: absolute;
+    top: 50%;
+    bottom: 40%;
+    left: 40%;
+    right: 55%;
+}
+
+#farm-1 {
+    position: absolute;
+    top: 40%;
+    bottom: 50%;
+    left: 40%;
+    right: 55%;
+}
+
+#power-1 {
+    position: absolute;
+    top: 60%;
+    bottom: 30%;
+    left: 40%;
+    right: 55%;
+}

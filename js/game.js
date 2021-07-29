@@ -85,6 +85,7 @@ function showQuiz() {
 }
 
 function showList() {
+    printText();
     var quit = document.getElementById("quit-popout-box");
     var quiz = document.getElementById("quiz-popout-box");
     var lst = document.getElementById("list-popout-box");
@@ -195,6 +196,14 @@ function setRhombus() {
     }
 }
 
+var text = "";
+
+function printText() {
+    text = "Forest: " + numForest + "\nCity: " + numCity + "\nFarm: " + numFarm + "\nDock: " + numDock + "\nPowerplant: " + numPowerPlant;
+    document.getElementById("item-list").innerHTML = text;
+}
+
+var iconWidth = 0;
 // what happens to a grid
 function actEvent(name) {
     // alert(onHand);
@@ -203,43 +212,78 @@ function actEvent(name) {
     if (onHand == null) {
         return;
     } else if (onHand == "shovel") {
+        if (ele.children.length == 0) {
+            onHand = null;
+            return;
+        }
+        let imgOld = ele.children[0];
+        iconWidth = imgOld.width;
+        let itemName = imgOld.alt;
         ele.removeChild(ele.children[0]);
+        if (itemName == "forest") numForest--;
+        if (itemName == "city") city1.remove();
+        if (itemName == "farm") farm1.remove();
+        if (itemName == "dock") dock1.remove();
+        if (itemName == "powerplant") powerplant1.remove();
         onHand = null;
     } else if (onHand == "city") {
-        ele.removeChild(ele.children[0]);
+        if (ele.children.length != 0) {
+            onHand = null;
+            return;
+        }
+
         let img = document.createElement("img");
+        city1.apply();
         img.src = "img/city.png";
-        img.width = "100%";
+        img.alt = "city";
+        img.width = iconWidth;
         img.className = "icon";
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "farm") {
-        ele.removeChild(ele.children[0]);
+        if (ele.children.length != 0) {
+            onHand = null;
+            return;
+        }
+        farm1.apply();
         let img = document.createElement("img");
         img.src = "img/farm.png";
-        img.width = "100%";
+        img.alt = "farm";
+        img.width = iconWidth;
         img.className = "icon";
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "dock") {
-        ele.removeChild(ele.children[0]);
+        if (ele.children.length != 0) {
+            onHand = null;
+            return;
+        }
+        dock1.apply();
         let img = document.createElement("img");
         img.src = "img/dock.png";
+        img.alt = "dock";
         ele.appendChild(img);
-        img.width = "100%";
+        img.width = iconWidth;
         img.className = "icon";
         onHand = null;
     } else if (onHand == "powerplant") {
-        ele.removeChild(ele.children[0]);
+        if (ele.children.length != 0) {
+            onHand = null;
+            return;
+        }
+        powerplant1.apply();
         let img = document.createElement("img");
         img.src = "img/powerplant.png";
-        img.width = "100%";
+        img.alt = "powerplant";
+        img.width = iconWidth;
         img.className = "icon";
         ele.appendChild(img);
         onHand = null;
     } else {
         return;
     }
+
+    printText();
 }
 
 // below are regarding game core
@@ -384,26 +428,24 @@ function Tech(type = "forest", level = 1, techGen=0, resourceGen=0, price=500, n
     this.num = numNeg;
 }
 
-city1 = Tech("city", 1, 5, resourceGen = -1000, price = 1000, numNeg = 1, popCap = 6000)
-city2 = Tech("city", 2, 7, resourceGen = -1200, price = 1500, numNeg = 1.2, popCap = 8000) // may not be used in tutorial
-city3 = Tech("city", 3, 9, resourceGen = -1300, price = 2000, numNeg = 1.3, popCap = 12000) // may not be used in tutorial
-powerplant1 = Tech("powerplant", 1, 0, resourceGen = 1200, price = 800)
-powerplant2 = Tech("powerplant", 2, 0, resourceGen = 3000, price = 1500, numNeg = 0.75) // may not be used in tutorial
-powerplant3 = Tech("powerplant", 3, 0, resourceGen = 10000, price = 3000, numNeg = 0.3) // may not be used in tutorial
-dock1 = Tech("dock", 1, 0, resourceGen = 1000, price = 600, numNeg = 1)
-farm1 = Tech("farm", 1, 0, resourceGen = 200, price = 200, numNeg = 1, popCap = 1000) // 0 tech, unlocked when initialized
+var city1 = new Tech("city", 1, 5, resourceGen = -1000, price = 1000, numNeg = 1, popCap = 6000);
+var city2 = new Tech("city", 2, 7, resourceGen = -1200, price = 1500, numNeg = 1.2, popCap = 8000); // may not be used in tutorial
+var city3 = new Tech("city", 3, 9, resourceGen = -1300, price = 2000, numNeg = 1.3, popCap = 12000); // may not be used in tutorial
+var powerplant1 = new Tech("powerplant", 1, 0, resourceGen = 1200, price = 800);
+var powerplant2 = new Tech("powerplant", 2, 0, resourceGen = 3000, price = 1500, numNeg = 0.75); // may not be used in tutorial
+var powerplant3 = new Tech("powerplant", 3, 0, resourceGen = 10000, price = 3000, numNeg = 0.3); // may not be used in tutorial
+var dock1 = new Tech("dock", 1, 0, resourceGen = 1000, price = 600, numNeg = 1);
+var farm1 = new Tech("farm", 1, 0, resourceGen = 200, price = 200, numNeg = 1, popCap = 1000); // 0 tech, unlocked when initialized
 
 Tech.prototype.apply = function() {
-    //if (this.type == "dock" && wrong position) {
-    //    alert("Dock cannot be built here.");
-    //} else {
     resourcePoints -= this.price;
     resourceGain += this.gain;
     popCapacity += this.popCap;
     techGain += this.tech;
     if (this.type != "forest") {
         numTech += 1;
-    } else if (this.type == "dock") {
+    }
+    if (this.type == "dock") {
         numDock += this.num;
     } else if (this.type == "powerplant") {
         numPowerPlant += this.num;
@@ -421,7 +463,8 @@ Tech.prototype.remove = function() {
     techGain -= this.tech;
     if (this.type != "forest") {
         numTech -= 1;
-    } else if (this.type == "dock") {
+    }
+    if (this.type == "dock") {
         numDock -= this.num;
     } else if (this.type == "powerplant") {
         numPowerPlant -= this.num;

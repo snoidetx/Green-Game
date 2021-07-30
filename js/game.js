@@ -26,14 +26,46 @@ function setShovel() {
         hideSelect('shovel-box');
     }
 }
+var city1Unlock = false;
+var dock1Unlock = false;
+var power1Unlock = false;
 
 function setCity() {
     showTech();
+    if (city1Unlock == false && techPoints < 5) {
+        alert("Insufficient tech points to unlock this technology!");
+        return;
+    };
+    if (techPoints >= 5) {
+        techPoints -= 5;
+        document.getElementById('tech').innerHTML = techPoints;
+        alert("Unlock City 1 technology with 5 tech points");
+    }
     if (onHand != "city") {
         onHand = "city";
     } else {
         onHand = null;
     }
+
+}
+
+function setDock() {
+    showTech();
+    if (dock11Unlock == false && techPoints < 5) {
+        alert("Insufficient tech points to unlock this technology!");
+        return;
+    };
+    if (techPoints >= 5) {
+        techPoints -= 5;
+        document.getElementById('tech').innerHTML = techPoints;
+        alert("Unlock Dock 1 technology with 5 tech points");
+    }
+    if (onHand != "dock") {
+        onHand = "dock";
+    } else {
+        onHand = null;
+    }
+
 }
 
 function setFarm() {
@@ -45,25 +77,24 @@ function setFarm() {
     }
 }
 
-function setDock() {
-    showTech();
-    if (onHand != "dock") {
-        onHand = "dock";
-    } else {
-        onHand = null;
-    }
-}
-
 function setPower() {
     showTech();
+    if (power1Unlock == false && techPoints < 5) {
+        alert("Insufficient tech points to unlock this technology!");
+        return;
+    };
+    if (techPoints >= 5) {
+        techPoints -= 5;
+        document.getElementById('tech').innerHTML = techPoints;
+        alert("Unlock Power Plant 1 technology with 5 tech points");
+    }
     if (onHand != "powerplant") {
         onHand = "powerplant";
     } else {
         onHand = null;
     }
+
 }
-
-
 // the following are regarding GUI
 
 function showQuit() {

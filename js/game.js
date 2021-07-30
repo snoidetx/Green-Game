@@ -5,10 +5,6 @@ window.transitionToPage = function(href) {
     }, 500)
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
-    document.querySelector('body').style.opacity = 1
-})
-
 var onHand = null;
 
 function setShovel() {
@@ -181,7 +177,7 @@ const questions = [{
         question: "Deforestation causes global warming, biodiversity loss and soil erosion.",
         answers: [
             { option: "True", answer: true },
-            { option: "False", answer: false}
+            { option: "False", answer: false }
         ]
     },
     {

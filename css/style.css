@@ -320,6 +320,70 @@ p {
     display: none;
 }
 
+#quiz-popout-box {
+    display: none;
+    background-image: url(../img/quiz.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#quiz-content {
+    margin-top: 100px;
+    padding-left: 1O0px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz-text {
+    text-align: center;
+}
+
+.options {
+    position: absolute;
+}
+
+
+.btn-option{
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+
+}
+#true {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#false {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#quit-quiz {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 10%;
+}
+#MCQ {
+    display: none;;
+}
+
 #list-popout-box {
     display: none;
 }

@@ -38,7 +38,7 @@ function setCity() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
-        document.getElementById('tech').innerHTML = techPoints;
+        document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock City 1 technology with 5 tech points");
     }
     if (onHand != "city") {
@@ -57,7 +57,7 @@ function setDock() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
-        document.getElementById('tech').innerHTML = techPoints;
+        document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock Dock 1 technology with 5 tech points");
     }
     if (onHand != "dock") {
@@ -85,7 +85,7 @@ function setPower() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
-        document.getElementById('tech').innerHTML = techPoints;
+        document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock Power Plant 1 technology with 5 tech points");
     }
     if (onHand != "powerplant") {
@@ -654,6 +654,7 @@ function updateValues() {
 function clickDock() {
     numClickDock++;
     resourcePoints += 1000;
+    document.getElementById("resource-point").innerHTML = resourcePoints;
 }
 
 function answerQns() {
@@ -663,6 +664,7 @@ function answerQns() {
 function conserve() {
     resourcePoints -= 500;
     conservation = 100;
+    document.getElementById("resource-point").innerHTML = resourcePoints;
 }
 
 function Tech(type = "forest", level = 1, techGen = 0, resourceGen = 0, price = 500, numNeg = 1, popCap = 0) {
@@ -686,6 +688,7 @@ var farm1 = new Tech("farm", 1, 0, resourceGen = 200, price = 200, numNeg = 1, p
 
 Tech.prototype.apply = function() {
     resourcePoints -= this.price;
+    document.getElementById("resource-point").innerHTML = resourcePoints;
     resourceGain += this.gain;
     popCapacity += this.popCap;
     techGain += this.tech;

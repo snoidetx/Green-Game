@@ -568,6 +568,9 @@ function checkState() {
         transitionToPage('mission-failed.html');
     } else if (arr[0] > 50000 && arr[1] >= 200) {
         transitionToPage('mission-success.html');
+    } else if (resourcePoints < 0) {
+        alert("Running out of resources!")
+        transitionToPage("mission-failed.html")
     }
 }
 

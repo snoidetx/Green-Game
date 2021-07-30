@@ -115,14 +115,105 @@ var questionPassed = [];
 const TOTAL_QN = 2 // TODO change later
 var userScore = 0 // TODO reset userScore when next round begines
 const questions = [{
-        question: "first question text",
+        question: "Government alone should be responsible for the environment. We as individuals are not.",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "How much waste does an average person generate per year?",
+        answers: [
+            { option: "50kg", answer: false },
+            { option: "500kg", answer: true }
+        ]
+    },
+    {
+        question: "Sewage discharged into rivers do not affect oceans far away.",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "Hydro energy, solar energy and wind energy are all clean energy.",
         answers: [
             { option: "True", answer: true },
             { option: "False", answer: false }
         ]
     },
     {
-        question: "second question text of which answer is false",
+        question: "Natural gas is renewable energy.",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "Carbon dioxide, methane, nitrogen oxide and water vapour are all greenhouse gas.",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false }
+        ]
+    },
+    {
+        question: "Deforestation and industrialisation contribute to global warming.",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false }
+        ]
+    },
+    {
+        question: "Forests mitigate greenhouse effect through",
+        answers: [
+            { option: "cell mitosis", answer: false },
+            { option: "photosynthesis", answer: true }
+        ]
+    },
+    {
+        question: "Sea pollution only affects coastal cities, not inland cities..",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "Deforestation causes global warming, biodiversity loss and soil erosion.",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false}
+        ]
+    },
+    {
+        question: "Climate change causes extreme weathers, sea level rise and extinction of species.",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false }
+        ]
+    },
+    {
+        question: "Individuals\' actions are inconsequential to global warming but industrial corporations.",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "Sea level rise causes loss of beach areas, habitat loss to polar bears and stronger storms and floods.",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false }
+        ]
+    },
+    {
+        question: "We should give up all polluting modern developments right now.",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    },
+    {
+        question: "Extinction of other species do not concern humans. We care only for humanitarian purposes.",
         answers: [
             { option: "True", answer: false },
             { option: "False", answer: true }
@@ -143,6 +234,7 @@ function beginTheQuiz() {
         let ano = 0;
         if (questions[currentQuestion].answers[ano].answer) {
             userScore += 1
+            techPoints += 1
             nextBtn.style.display = "block"
             questionPassed.push(currentQuestion)
         } else {
@@ -168,7 +260,7 @@ function beginTheQuiz() {
 
 function pickQuizQuestion(questionPassed, TOTAL_QN) {
     if (questionPassed.length == TOTAL_QN) {
-        alert("We are running out of questions.");
+        alert("I need sometime to update my archive. Please obtain TechPoints another way.");
     } else {
         currentQuestion = Math.floor(Math.random() * (TOTAL_QN));
         if (currentQuestion in questionPassed) {
@@ -501,13 +593,13 @@ function updateValues() {
     }
     let ecoImbalance_new = ecoImbalance_old + CITY_POLL * numCity + POWERP_ECOI * numPowerPlant - FOREST_ECOB * numForest - conservation;
 
-    techPoints += techGain + qnsAnswered;
+    techPoints += techGain;
 
     resourcePoints += resourceGain;
 
     year = arr[1];
     year += 10;
-    let techPoints_new = arr[5] + techGain + qnsAnswered;
+    let techPoints_new = arr[5] + techGain;
     arr = [pop_new, year, earthquakeLikelihood, seaPollution_new, ecoImbalance_new];
 }
 

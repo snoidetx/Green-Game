@@ -91,6 +91,28 @@ p {
     cursor: pointer;
 }
 
+.success-to-start-button {
+    position: absolute;
+    top: 2.5%;
+    bottom: 82.5%;
+    left: 3.8%;
+    right: 87.7%;
+    border: 3px hidden black;
+
+    cursor: pointer;
+}
+
+.success-to-levels-button {
+    position: absolute;
+    top: 84.5%;
+    bottom: 2.5%;
+    left: 38%;
+    right: 35.5%;
+    border: 3px hidden black;
+
+    cursor: pointer;
+}
+
 .levels-to-game-button {
     position: absolute;
     top: 86%;
@@ -251,11 +273,11 @@ p {
 
 #shovel-box {
     position: absolute;
-    top: 73.5%;
+    top: 66.5%;
     bottom: 16.5%;
     left: 90.7%;
     right: 0;
-    border: 3px solid black;
+    border: 3px hidden black;
 
     cursor: pointer;
 }
@@ -686,7 +708,7 @@ p {
 }
 
 .item-button {
-    border: 3px solid black;
+    border: 3px hidden black;
     cursor: pointer;
 }
 

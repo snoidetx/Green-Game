@@ -152,7 +152,7 @@ p {
     margin-right: 30px;
     transform: translate(0, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #population-box {
@@ -171,7 +171,7 @@ p {
     margin-right: 30px;
     transform: translate(0, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #resource-point-box {
@@ -190,7 +190,7 @@ p {
     margin-right: 30px;
     transform: translate(0, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #tech-point-box {
@@ -209,7 +209,7 @@ p {
     margin-right: 30px;
     transform: translate(0, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #next-round-box {
@@ -342,6 +342,8 @@ p {
     top: 50%;
     height: 35%;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #trueBtn {

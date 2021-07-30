@@ -52,7 +52,7 @@ function setCity() {
 
 function setDock() {
     showTech();
-    if (dock11Unlock == false && techPoints < 5) {
+    if (dock1Unlock == false && techPoints < 5) {
         alert("Insufficient tech points to unlock this technology!");
         return;
     };

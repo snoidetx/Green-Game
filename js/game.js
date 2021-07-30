@@ -118,7 +118,7 @@ window.onload = function() {
 }
 
 var questionPassed = [];
-const TOTAL_QN = 2 // TODO change later
+const TOTAL_QN = 15 // TODO change later
 var userScore = 0 // TODO reset userScore when next round begines
 const questions = [{
         question: "Government alone should be responsible for the environment. We as individuals are not.",

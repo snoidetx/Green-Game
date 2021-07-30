@@ -100,14 +100,14 @@ function showQuiz() {
 
 var trueBtn, questionText, falseBtn, quitBtn, nextBtn;
 
-window.onload=function(){
+window.onload = function() {
     trueBtn = document.getElementById("trueBtn");
     questionText = document.getElementById("questionText");
     falseBtn = document.getElementById("falseBtn");
     nextBtn = document.getElementById("next-question");
     quitBtn = document.getElementById("quit-quiz");
     nextBtn.addEventListener("click", next);
-    nextBtn.style.display="none";
+    nextBtn.style.display = "none";
     quitBtn.addEventListener("click", showQuiz);
 }
 
@@ -130,12 +130,12 @@ const questions = [{
     }
 ];
 
-function next(){
+function next() {
     beginTheQuiz();
 }
 
 function beginTheQuiz() {
-    console.log(questions[0],questions[1])
+    nextBtn.style.display = "none"
     currentQuestion = pickQuizQuestion(questionPassed, TOTAL_QN);
     questionText.innerHTML = questions[currentQuestion].question;
     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
@@ -167,9 +167,9 @@ function beginTheQuiz() {
 }
 
 function pickQuizQuestion(questionPassed, TOTAL_QN) {
-    if(questionPassed.length == TOTAL_QN){
+    if (questionPassed.length == TOTAL_QN) {
         alert("We are running out of questions.");
-    } else{
+    } else {
         currentQuestion = Math.floor(Math.random() * (TOTAL_QN));
         if (currentQuestion in questionPassed) {
             pickQuizQuestion(questionPassed);

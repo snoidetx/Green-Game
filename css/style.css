@@ -312,6 +312,27 @@
         #quiz-text {
             text-align: center;
         }
+
+        .options {
+            position: absolute;
+        }
+
+        #true {
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #false {
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        #MCQ {
+            display: none;;
+        }
         
         #list-popout-box {
             display: none;

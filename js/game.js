@@ -287,6 +287,7 @@ function beginTheQuiz() {
         let ano = 1;
         if (questions[currentQuestion].answers[ano].answer) {
             userScore += 1;
+            techPoints += 1;
             nextBtn.style.display = "block"; // TODO  答对了可以答下一题，打错了这一轮不能再答题
             questionPassed.push(currentQuestion);
             alert("Congrats! You've earned one tech point.")

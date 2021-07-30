@@ -270,6 +270,8 @@ function beginTheQuiz() {
     nextBtn.style.display = "none"
     currentQuestion = pickQuizQuestion(questionPassed, TOTAL_QN);
     questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.style.display = "flex"
+    falseBtn.style.display = "flex"
     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
     trueBtn.onclick = () => {
         let ano = 0;
@@ -280,6 +282,9 @@ function beginTheQuiz() {
             questionPassed.push(currentQuestion);
             alert("Congrats! You've earned one tech point.")
             document.getElementById("tech-point").innerHTML = techPoints;
+            trueBtn.style.display = "none";
+            falseBtn.style.display = "none";
+            questionText.innerHTML = "Plase click Next for the next question."
         } else {
             alert("Please try later.")
             showQuiz()
@@ -296,6 +301,9 @@ function beginTheQuiz() {
             questionPassed.push(currentQuestion);
             alert("Congrats! You've earned one tech point.")
             document.getElementById("tech-point").innerHTML = techPoints;
+            trueBtn.style.display = "none";
+            falseBtn.style.display = "none";
+            questionText.innerHTML = "Plase click Next for the next question."
         } else {
             alert("Please try later.")
             showQuiz()

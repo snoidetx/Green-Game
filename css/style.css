@@ -298,7 +298,7 @@
             background-image: url(../img/quiz.png);
             background-size: 100%;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;;
         }
         
         #quiz-content {

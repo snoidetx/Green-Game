@@ -98,41 +98,56 @@ function showQuiz() {
     beginTheQuiz(); // Show quiz and then immediately begin quiz?
 }
 
-function beginTheQuiz() {
-    const trueBtn = document.getElementById("trueBtn")
-    const questionText = document.getElementById("questionText")
-    const falseBtn = document.getElementById("falseBtn")
-    const nextBtn = document.getElementById("next-question")
-    const TOTAL_QN = 2 // TODO change later
-    const questionIndex = -1
-    var userScore = 0
-    var questionPassed = []
-    const questions = [{
-            question: "first question text",
-            answers: [
-                { option: "True", answer: true },
-                { option: "False", answer: false }
-            ]
-        },
-        {
-            question: "second question text of which answer is false",
-            answers: [
-                { option: "True", answer: false },
-                { option: "False", answer: true }
-            ]
-        }
-    ]
+var trueBtn, questionText, falseBtn, quitBtn, nextBtn;
 
-    currentQuestion = pickQuizQuestion(questionPassed, TOTAL_QN)
+window.onload=function(){
+    trueBtn = document.getElementById("trueBtn");
+    questionText = document.getElementById("questionText");
+    falseBtn = document.getElementById("falseBtn");
+    nextBtn = document.getElementById("next-question");
+    quitBtn = document.getElementById("quit-quiz");
+    nextBtn.addEventListener("click", next);
+    nextBtn.style.display="none";
+    quitBtn.addEventListener("click", showQuiz);
+}
+
+var questionPassed = [];
+const TOTAL_QN = 2 // TODO change later
+var userScore = 0 // TODO reset userScore when next round begines
+const questions = [{
+        question: "first question text",
+        answers: [
+            { option: "True", answer: true },
+            { option: "False", answer: false }
+        ]
+    },
+    {
+        question: "second question text of which answer is false",
+        answers: [
+            { option: "True", answer: false },
+            { option: "False", answer: true }
+        ]
+    }
+];
+
+function next(){
+    beginTheQuiz();
+}
+
+function beginTheQuiz() {
+    console.log(questions[0],questions[1])
+    currentQuestion = pickQuizQuestion(questionPassed, TOTAL_QN);
     questionText.innerHTML = questions[currentQuestion].question;
     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-    nextBtn.style.display = "none"
     trueBtn.onclick = () => {
         let ano = 0;
         if (questions[currentQuestion].answers[ano].answer) {
             userScore += 1
-            nextBtn.style.display = "flex"
-            questionPassed.push(current)
+            nextBtn.style.display = "block"
+            questionPassed.push(currentQuestion)
+        } else {
+            alert("Please try later.")
+            showQuiz()
         }
 
     }
@@ -140,21 +155,28 @@ function beginTheQuiz() {
     falseBtn.onclick = () => {
         let ano = 1;
         if (questions[currentQuestion].answers[ano].answer) {
-            userScore += 1
-            nextBtn.style.display = "flex" // TODO  答对了可以答下一题，打错了这一轮不能再答题
-            questionPassed.push(current)
+            userScore += 1;
+            nextBtn.style.display = "block"; // TODO  答对了可以答下一题，打错了这一轮不能再答题
+            questionPassed.push(currentQuestion);
+        } else {
+            alert("Please try later.")
+            showQuiz()
         }
     }
 
-    nextBtn.onclick = beginTheQuiz
 }
 
 function pickQuizQuestion(questionPassed, TOTAL_QN) {
-    currentQuestion = Math.floor(Math.random() * (TOTAL_QN - 1))
-    if (currentQuestion in questionPassed) {
-        pickQuizQuestion(questionPassed);
-    } else {
-        return currentQuestion;
+    if(questionPassed.length == TOTAL_QN){
+        alert("We are running out of questions.");
+    } else{
+        currentQuestion = Math.floor(Math.random() * (TOTAL_QN));
+        if (currentQuestion in questionPassed) {
+            pickQuizQuestion(questionPassed);
+        } else {
+            return currentQuestion;
+        }
+
     }
 }
 

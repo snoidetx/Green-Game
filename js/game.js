@@ -731,5 +731,5 @@ Tech.prototype.remove = function() {
 
 function cheat() {
     techPoints += 5;
-    document.getElementById("resource-point").innerHTML = resourcePoints;
+    document.getElementById("tech-point").innerHTML = techPoints;
 }

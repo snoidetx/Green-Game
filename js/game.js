@@ -400,7 +400,11 @@ var text = "";
 
 function printText() {
     text = "Forest: " + numForest + "\nCity: " + numCity + "\nFarm: " + numFarm + "\nDock: " + numDock + "\nPowerplant: " + numPowerPlant;
-    document.getElementById("item-list").innerHTML = text;
+    document.getElementById("item-forest").innerHTML = "Forest: " + numForest;
+    document.getElementById("item-city").innerHTML = "City: " + numCity;
+    document.getElementById("item-farm").innerHTML = "Farm: " + numFarm;
+    document.getElementById("item-dock").innerHTML = "Dock: " + numDock;
+    document.getElementById("item-pplant").innerHTML = "Powerplant: " + numPowerPlant;
 }
 
 var iconWidth;

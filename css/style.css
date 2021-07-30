@@ -396,10 +396,23 @@ p {
 
 #list-popout-box {
     display: none;
+    align-content: center;
+    position: absolute;
+}
+
+#item-list {
+    position: absolute;
+    bottom: 30%;
+    align-items: left;
+    left: 37%;
 }
 
 #tech-popout-box {
     display: none;
+}
+
+li {
+    text-align: left;
 }
 
 .main-grids {

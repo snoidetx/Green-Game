@@ -36,7 +36,7 @@ function setCity() {
         alert("Insufficient tech points to unlock this technology!");
         return;
     };
-    if (techPoints >= 5) {
+    if (city1Unlock == false) {
         techPoints -= 5;
         city1Unlock = true
         document.getElementById("tech-point").innerHTML = techPoints;
@@ -47,6 +47,7 @@ function setCity() {
     } else {
         onHand = null;
     }
+    return city1Unlock;
 
 }
 
@@ -56,7 +57,7 @@ function setDock() {
         alert("Insufficient tech points to unlock this technology!");
         return;
     };
-    if (techPoints >= 5) {
+    if (dock1Unlock == false) {
         techPoints -= 5;
         dock1Unlock = true
         document.getElementById("tech-point").innerHTML = techPoints;
@@ -67,7 +68,7 @@ function setDock() {
     } else {
         onHand = null;
     }
-
+    return dock1Unlock;
 }
 
 function setFarm() {
@@ -85,7 +86,7 @@ function setPower() {
         alert("Insufficient tech points to unlock this technology!");
         return;
     };
-    if (techPoints >= 5) {
+    if (power1Unlock == false) {
         techPoints -= 5;
         power1Unlock = true;
         document.getElementById("tech-point").innerHTML = techPoints;
@@ -96,7 +97,7 @@ function setPower() {
     } else {
         onHand = null;
     }
-
+    return power1Unlock;
 }
 // the following are regarding GUI
 

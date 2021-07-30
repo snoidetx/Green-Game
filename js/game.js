@@ -239,10 +239,12 @@ function beginTheQuiz() {
     trueBtn.onclick = () => {
         let ano = 0;
         if (questions[currentQuestion].answers[ano].answer) {
-            userScore += 1
-            techPoints += 1
-            nextBtn.style.display = "block"
-            questionPassed.push(currentQuestion)
+            userScore += 1;
+            techPoints += 1;
+            nextBtn.style.display = "block";
+            questionPassed.push(currentQuestion);
+            alert("Congrats! You've earned one tech point.")
+            document.getElementById("tech-point").innerHTML = techPoints;
         } else {
             alert("Please try later.")
             showQuiz()
@@ -256,6 +258,8 @@ function beginTheQuiz() {
             userScore += 1;
             nextBtn.style.display = "block"; // TODO  答对了可以答下一题，打错了这一轮不能再答题
             questionPassed.push(currentQuestion);
+            alert("Congrats! You've earned one tech point.")
+            document.getElementById("tech-point").innerHTML = techPoints;
         } else {
             alert("Please try later.")
             showQuiz()

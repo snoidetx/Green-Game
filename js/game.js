@@ -728,3 +728,8 @@ Tech.prototype.remove = function() {
         numFarm -= this.num;
     }
 }
+
+function cheat() {
+    techPoints += 5
+    document.getElementById("resource-point").innerHTML = resourcePoints;
+}

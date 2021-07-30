@@ -1,4 +1,4 @@
-body {
+body { 
     opacity: 0;
     transition: opacity .5s;
 }
@@ -48,8 +48,10 @@ p {
     left: 0;
     right: 0;
     background-color: white;
+
     padding: 20px;
     text-align: center;
+
     cursor: pointer;
 }
 
@@ -60,8 +62,10 @@ p {
     left: 0;
     right: 0;
     background-color: gray;
+
     padding: 20px;
     text-align: center;
+
     cursor: pointer;
 }
 
@@ -83,6 +87,7 @@ p {
     bottom: 87%;
     left: 5%;
     right: 88%;
+
     cursor: pointer;
 }
 
@@ -93,6 +98,7 @@ p {
     left: 3.8%;
     right: 87.7%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -103,6 +109,7 @@ p {
     left: 38%;
     right: 35.5%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -112,6 +119,7 @@ p {
     bottom: 6%;
     left: 8%;
     right: 88%;
+
     cursor: pointer;
 }
 
@@ -121,7 +129,9 @@ p {
     bottom: 85%;
     left: 71%;
     right: 3%;
+
     text-align: center;
+    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
 }
@@ -133,6 +143,7 @@ p {
     left: 0;
     right: 87.7%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -151,6 +162,7 @@ p {
     right: 0;
     margin-right: 30px;
     transform: translate(0, -50%);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
 }
@@ -170,6 +182,7 @@ p {
     right: 0;
     margin-right: 30px;
     transform: translate(0, -50%);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
 }
@@ -189,6 +202,7 @@ p {
     right: 0;
     margin-right: 30px;
     transform: translate(0, -50%);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
 }
@@ -208,6 +222,7 @@ p {
     right: 0;
     margin-right: 30px;
     transform: translate(0, -50%);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
 }
@@ -219,6 +234,7 @@ p {
     left: 0;
     right: 87.7%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -229,6 +245,7 @@ p {
     left: 72.1%;
     right: 18.6%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -239,6 +256,7 @@ p {
     left: 81.4%;
     right: 9.3%;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -249,6 +267,7 @@ p {
     left: 90.7%;
     right: 0;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -259,6 +278,7 @@ p {
     left: 90.7%;
     right: 0;
     border: 3px hidden black;
+
     cursor: pointer;
 }
 
@@ -269,10 +289,13 @@ p {
     left: 12.3%;
     right: 12.3%;
     border: 3px hidden black;
+
     padding: 10px;
     text-align: center;
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 200%;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -295,66 +318,6 @@ p {
 
 #quiz-popout-box {
     display: none;
-    background-image: url(../img/quiz.png);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#quiz-content {
-    margin-top: 100px;
-    padding-left: 1O0px;
-    padding-right: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#quiz-text {
-    text-align: center;
-}
-
-.options {
-    position: absolute;
-}
-
-
-.btn-option{
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
-  letter-spacing: 0.05rem;
-
-}
-#true {
-    text-align: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-#false {
-    text-align: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-#quit-quiz {
-    text-align: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 10%;
-}
-#MCQ {
-    display: none;;
 }
 
 #list-popout-box {
@@ -375,8 +338,8 @@ p {
 }
 
 .icon {
-    position: absolute;
-    bottom: 0;
+    position: absolute; 
+    bottom: 0; 
 }
 
 .rhombus-holder {

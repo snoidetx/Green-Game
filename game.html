@@ -1,246 +1,255 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">  
-        <link href="css/style.css" rel="stylesheet">
-        <script src="js/animation.js"></script>
-        <script src="js/game.js"></script>
-        <title>REarth - A Legenze Game</title>
-    </head>
 
-    <body>
-        <div class="background-image">
-            <img src="img/map.png" alt="start" width=100% height=100%>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/animation.js"></script>
+    <script src="js/game.js"></script>
+    <title>REarth - A Legenze Game</title>
+</head>
+
+<body>
+    <div class="background-image">
+        <img src="img/map.png" alt="start" width=100% height=100%>
+    </div>
+
+    <div class="main-grids" id="main-grids" onmouseover="setRhombus()">
+        <div class="rhombus-holder" id="rh-1101">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
         </div>
 
-        <div class="main-grids" id="main-grids" onmouseover="setRhombus()">
-            <div class="rhombus-holder" id="rh-1101">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-901">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-101">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1202">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1002">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-202">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-002">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1303">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1103">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-903">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-103">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1204">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1004">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-204">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1305">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1105">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-905">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-                <div class="rhombus"></div>
-            </div>
-
-            <div class="rhombus-holder" id="rh-1206">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1006">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-006">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1307">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1107">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-                <div class="rhombus"></div>
-            </div>
-
-            <div class="rhombus-holder" id="rh-507">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-107">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1208">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1008">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1309">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1109">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-109">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1210">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1010">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-210">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-1111">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-911">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-                <div class="rhombus"></div>
-            </div>
-
-            <div class="rhombus-holder" id="rh-511">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-            
-            <div class="rhombus-holder" id="rh-311">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-812">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-412">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-212">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-313">
-                <img src="img/forest.png" alt="forest" width=100% class="icon">
-            </div>
-
-            <div class="rhombus-holder" id="rh-713">
-                
-            </div>
-
-            <div class="rhombus-holder" id="rh-913">
-                
-            </div>
-
-            <div class="rhombus-holder" id="rh-1012">
-                
-            </div>
-
-            <div class="rhombus-holder" id="rh-1212">
-                
-            </div>
-
-            <div class="rhombus-holder" id="rh-1311">
-                
-            </div>
+        <div class="rhombus-holder" id="rh-901">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
         </div>
 
-        <div id="shovel-box" onclick="setShovel()" onmouseover="showSelect('shovel-box')" onmouseout="hideSelect('shovel-box')"></div>
-        <div id="profile-box" onclick="showQuit()" onmouseover="showSelect('profile-box')" onmouseout="hideSelect('profile-box')"></div>
-        <div id="time-box">
-            <p id="time">0 year</p>
-        </div>
-        <div id="population-box">
-            <p id="population">5000</p>
-        </div>
-        <div id="resource-point-box">
-            <p id="resource-point">500</p>
-        </div>
-        <div id="tech-point-box">
-            <p id="tech-point">0</p>
-        </div>
-        <div id="next-round-box" onclick="nextRound()" onmouseover="showSelect('next-round-box')" onmouseout="hideSelect('next-round-box')"></div>
-        <div id="quiz-box" onclick="showQuiz()" onmouseover="showSelect('quiz-box')" onmouseout="hideSelect('quiz-box')"></div>
-        <div id="list-box" onclick="showList()" onmouseover="showSelect('list-box')" onmouseout="hideSelect('list-box')"></div>
-        <div id="tech-box" onclick="showTech()" onmouseover="showSelect('tech-box')" onmouseout="hideSelect('tech-box')"></div>
-
-        <div class="center-popout-box" id="quit-popout-box">
-            <img src="img/quit.png" alt="quit" width=auto height=100%>
-            <div id="quit-game" onclick="transitionToPage('levels.html')" onmouseover="showSelect('quit-game')" onmouseout="hideSelect('quit-game')"></div>
-        </div>
-        
-        <div class="center-popout-box" id="quiz-popout-box">
-            <img src="img/quiz.png" alt="quiz" width=auto height=100%>
-        </div>
-        
-        <div class="center-popout-box" id="list-popout-box">
-            <img src="img/book.png" alt="book" width=auto height=100%>
-            <div><p id="item-list">abababa</p></div>
+        <div class="rhombus-holder" id="rh-101">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
         </div>
 
-        <div class="center-popout-box" id="tech-popout-box">
-            <img src="img/screen.png" alt="book" width=auto height=100%>
-            <div class="item-button" id="city-1" onclick="setCity()" onmouseover="showSelect('city-1')" onmouseout="hideSelect('city-1')"></div>
-            <div class="item-button" id="farm-1" onclick="setFarm()" onmouseover="showSelect('farm-1')" onmouseout="hideSelect('farm-1')"></div>
-            <div class="item-button" id="dock-1" onclick="setDock()" onmouseover="showSelect('dock-1')" onmouseout="hideSelect('dock-1')"></div>
-            <div class="item-button" id="power-1" onclick="setPower()" onmouseover="showSelect('power-1')" onmouseout="hideSelect('power-1')"></div>
+        <div class="rhombus-holder" id="rh-1202">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
         </div>
 
-    </body>
+        <div class="rhombus-holder" id="rh-1002">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-202">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-002">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1303">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1103">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-903">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-103">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1204">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1004">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-204">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1305">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1105">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-905">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+            <div class="rhombus"></div>
+        </div>
+
+        <div class="rhombus-holder" id="rh-1206">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1006">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-006">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1307">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1107">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+            <div class="rhombus"></div>
+        </div>
+
+        <div class="rhombus-holder" id="rh-507">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-107">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1208">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1008">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1309">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1109">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-109">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1210">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1010">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-210">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-1111">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-911">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+            <div class="rhombus"></div>
+        </div>
+
+        <div class="rhombus-holder" id="rh-511">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-311">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-812">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-412">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-212">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-313">
+            <img src="img/forest.png" alt="forest" width=100% class="icon">
+        </div>
+
+        <div class="rhombus-holder" id="rh-713">
+
+        </div>
+
+        <div class="rhombus-holder" id="rh-913">
+
+        </div>
+
+        <div class="rhombus-holder" id="rh-1012">
+
+        </div>
+
+        <div class="rhombus-holder" id="rh-1212">
+
+        </div>
+
+        <div class="rhombus-holder" id="rh-1311">
+
+        </div>
+    </div>
+
+    <div id="shovel-box" onclick="setShovel()" onmouseover="showSelect('shovel-box')" onmouseout="hideSelect('shovel-box')"></div>
+    <div id="profile-box" onclick="showQuit()" onmouseover="showSelect('profile-box')" onmouseout="hideSelect('profile-box')"></div>
+    <div id="time-box">
+        <p id="time">0 year</p>
+    </div>
+    <div id="population-box">
+        <p id="population">5000</p>
+    </div>
+    <div id="resource-point-box">
+        <p id="resource-point">500</p>
+    </div>
+    <div id="tech-point-box">
+        <p id="tech-point">0</p>
+    </div>
+    <div id="next-round-box" onclick="nextRound()" onmouseover="showSelect('next-round-box')" onmouseout="hideSelect('next-round-box')"></div>
+    <div id="quiz-box" onclick="showQuiz()" onmouseover="showSelect('quiz-box')" onmouseout="hideSelect('quiz-box')"></div>
+    <div id="list-box" onclick="showList()" onmouseover="showSelect('list-box')" onmouseout="hideSelect('list-box')"></div>
+    <div id="tech-box" onclick="showTech()" onmouseover="showSelect('tech-box')" onmouseout="hideSelect('tech-box')"></div>
+
+    <div class="center-popout-box" id="quit-popout-box">
+        <img src="img/quit.png" alt="quit" width=auto height=100%>
+        <div id="quit-game" onclick="transitionToPage('levels.html')" onmouseover="showSelect('quit-game')" onmouseout="hideSelect('quit-game')"></div>
+    </div>
+
+    <div class="center-popout-box" id="quiz-popout-box">
+        <div class="content" id="quiz-content">
+            <div class="content" id="question-text">Some random text first</div>
+            <div class="options" id="true-false">
+                <button class="option-btn" id="true">True</button>
+                <button class="option-btn" id="false">False</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="center-popout-box" id="list-popout-box">
+        <img src="img/book.png " alt="book " width=auto height=100%>
+        <div>
+            <p id="item-list">abababa</p>
+        </div>
+    </div>
+
+    <div class="center-popout-box" id="tech-popout-box">
+        <img src="img/screen.png " alt="book " width=auto height=100%>
+        <div class="item-button " id="city-1 " onclick="setCity() " onmouseover="showSelect( 'city-1') " onmouseout="hideSelect( 'city-1') "></div>
+        <div class="item-button " id="farm-1 " onclick="setFarm() " onmouseover="showSelect( 'farm-1') " onmouseout="hideSelect( 'farm-1') "></div>
+        <div class="item-button " id="dock-1 " onclick="setDock() " onmouseover="showSelect( 'dock-1') " onmouseout="hideSelect( 'dock-1') "></div>
+        <div class="item-button " id="power-1 " onclick="setPower() " onmouseover="showSelect( 'power-1') " onmouseout="hideSelect( 'power-1') "></div>
+    </div>
+
+</body>
 
 </html>

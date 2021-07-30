@@ -779,6 +779,7 @@ li {
 }
 
 #rh-1309 {
+    display: none;
     position: absolute;
     top: 0;
     bottom: 29.41%;

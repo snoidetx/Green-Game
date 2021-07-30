@@ -660,7 +660,7 @@ function updateValues() {
 
     year = arr[1];
     year += 10;
-    let techPoints_new = arr[5] + techGain;
+
     arr = [pop_new, year, earthquakeLikelihood, seaPollution_new, ecoImbalance_new];
 }
 

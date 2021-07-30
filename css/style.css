@@ -1,759 +1,782 @@
-        body {
-            opacity: 0;
-            transition: opacity .5s;
-        }
-        
-        a {
-            color: black;
-        }
-        
-        img {
-            object-fit: fill;
-        }
-        
-        p {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        
-        .copyright {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 10px;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-        
-        .center-box {
-            position: absolute;
-            top: 41%;
-            bottom: 22%;
-            left: 33%;
-            right: 33%;
-            width: 34%;
-        }
-        
-        .single-player-button {
-            position: absolute;
-            top: 0;
-            bottom: 60%;
-            left: 0;
-            right: 0;
-            background-color: white;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-        }
-        
-        .multi-player-button {
-            position: absolute;
-            top: 60%;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: gray;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-        }
-        
-        .button-text-50 {
-            font-size: 50px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
-        }
-        
-        .button-text-10 {
-            font-size: 10px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
-        }
-        
-        .levels-to-start-button {
-            position: absolute;
-            top: 6%;
-            bottom: 87%;
-            left: 5%;
-            right: 88%;
-            cursor: pointer;
-        }
-        
-        .success-to-start-button {
-            position: absolute;
-            top: 2.5%;
-            bottom: 82.5%;
-            left: 3.8%;
-            right: 87.7%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        .success-to-levels-button {
-            position: absolute;
-            top: 84.5%;
-            bottom: 2.5%;
-            left: 38%;
-            right: 35.5%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        .levels-to-game-button {
-            position: absolute;
-            top: 86%;
-            bottom: 6%;
-            left: 8%;
-            right: 88%;
-            cursor: pointer;
-        }
-        
-        .chapter-name {
-            position: absolute;
-            top: 4%;
-            bottom: 85%;
-            left: 71%;
-            right: 3%;
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 24px;
-        }
-        
-        #profile-box {
-            position: absolute;
-            top: 0;
-            bottom: 77.7%;
-            left: 0;
-            right: 87.7%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #time-box {
-            position: absolute;
-            top: 0;
-            bottom: 88.8%;
-            left: 12.3%;
-            right: 72%;
-            border: 3px hidden black;
-        }
-        
-        #time-box p {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            margin-right: 30px;
-            transform: translate(0, -50%);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 40px;
-        }
-        
-        #population-box {
-            position: absolute;
-            top: 0;
-            bottom: 88.8%;
-            left: 62.5%;
-            right: 25%;
-            border: 3px hidden black;
-        }
-        
-        #population-box p {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            margin-right: 30px;
-            transform: translate(0, -50%);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 40px;
-        }
-        
-        #resource-point-box {
-            position: absolute;
-            top: 0;
-            bottom: 88.8%;
-            left: 75%;
-            right: 12.3%;
-            border: 3px hidden black;
-        }
-        
-        #resource-point-box p {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            margin-right: 30px;
-            transform: translate(0, -50%);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 40px;
-        }
-        
-        #tech-point-box {
-            position: absolute;
-            top: 0;
-            bottom: 88.8%;
-            left: 87.7%;
-            right: 0;
-            border: 3px hidden black;
-        }
-        
-        #tech-point-box p {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            margin-right: 30px;
-            transform: translate(0, -50%);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 40px;
-        }
-        
-        #next-round-box {
-            position: absolute;
-            top: 77.7%;
-            bottom: 0;
-            left: 0;
-            right: 87.7%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #quiz-box {
-            position: absolute;
-            top: 83.5%;
-            bottom: 0;
-            left: 72.1%;
-            right: 18.6%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #list-box {
-            position: absolute;
-            top: 83.5%;
-            bottom: 0;
-            left: 81.4%;
-            right: 9.3%;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #tech-box {
-            position: absolute;
-            top: 83.5%;
-            bottom: 0;
-            left: 90.7%;
-            right: 0;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #shovel-box {
-            position: absolute;
-            top: 66.5%;
-            bottom: 16.5%;
-            left: 90.7%;
-            right: 0;
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        .center-popout-box {
-            position: absolute;
-            top: 11.2%;
-            bottom: 16.5%;
-            left: 12.3%;
-            right: 12.3%;
-            border: 3px hidden black;
-            padding: 10px;
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 200%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #quit-popout-box {
-            display: none;
-        }
-        
-        #quit-game {
-            position: absolute;
-            top: 37%;
-            bottom: 53.5%;
-            left: 36%;
-            right: 36%;
-            border: 3px hidden black;
-            display: none;
-            cursor: pointer;
-        }
-        
-        #quiz-popout-box {
-            display: none;
-            background-image: url(../img/quiz.png);
-            background-size: 100%;
-            background-position: center;
-            background-repeat: no-repeat;;
-        }
-        
-        #quiz-content {
-            margin-top: 100px;
-            padding-left: 1O0px;
-            padding-right: 100px;
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-        
-        #quiz-text {
-            text-align: center;
-        }
+body {
+    opacity: 0;
+    transition: opacity .5s;
+}
 
-        .options {
-            position: absolute;
-        }
+a {
+    color: black;
+}
 
-        #true {
-            text-align: center;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-        }
+img {
+    object-fit: fill;
+}
 
-        #false {
-            text-align: center;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-        }
-        #MCQ {
-            display: none;;
-        }
-        
-        #list-popout-box {
-            display: none;
-        }
-        
-        #tech-popout-box {
-            display: none;
-        }
-        
-        .main-grids {
-            position: absolute;
-            top: 12%;
-            bottom: 16%;
-            left: 21.5%;
-            right: 12.6%;
-            border: 3px hidden black;
-        }
-        
-        .icon {
-            position: absolute;
-            bottom: 0;
-        }
-        
-        .rhombus-holder {
-            border: 3px hidden gray;
-            align-items: center;
-        }
-        
-        #rh-002 {
-            position: absolute;
-            top: 0;
-            bottom: 70.59%;
-            left: 0%;
-            right: 87.5%;
-        }
-        
-        #rh-006 {
-            position: absolute;
-            top: 0;
-            bottom: 47.06%;
-            left: 0%;
-            right: 87.5%;
-        }
-        
-        #rh-101 {
-            position: absolute;
-            top: 0;
-            bottom: 76.47%;
-            left: 6.25%;
-            right: 81.25%;
-        }
-        
-        #rh-103 {
-            position: absolute;
-            top: 0;
-            bottom: 64.71%;
-            left: 6.25%;
-            right: 81.25%;
-        }
-        
-        #rh-107 {
-            position: absolute;
-            top: 0;
-            bottom: 41.18%;
-            left: 6.25%;
-            right: 81.25%;
-        }
-        
-        #rh-109 {
-            position: absolute;
-            top: 0;
-            bottom: 29.41%;
-            left: 6.25%;
-            right: 81.25%;
-        }
-        
-        #rh-202 {
-            position: absolute;
-            top: 0;
-            bottom: 70.59%;
-            left: 12.5%;
-            right: 75%;
-        }
-        
-        #rh-204 {
-            position: absolute;
-            top: 0;
-            bottom: 58.82%;
-            left: 12.5%;
-            right: 75%;
-        }
-        
-        #rh-210 {
-            position: absolute;
-            top: 0;
-            bottom: 23.53%;
-            left: 12.5%;
-            right: 75%;
-        }
-        
-        #rh-212 {
-            position: absolute;
-            top: 0;
-            bottom: 11.76%;
-            left: 12.5%;
-            right: 75%;
-        }
-        
-        #rh-311 {
-            position: absolute;
-            top: 0;
-            bottom: 17.65%;
-            left: 18.75%;
-            right: 68.75%;
-        }
-        
-        #rh-313 {
-            position: absolute;
-            top: 0;
-            bottom: 5.88%;
-            left: 18.75%;
-            right: 68.75%;
-        }
-        
-        #rh-412 {
-            position: absolute;
-            top: 0;
-            bottom: 11.76%;
-            left: 25%;
-            right: 62.5%;
-        }
-        
-        #rh-507 {
-            position: absolute;
-            top: 0;
-            bottom: 41.18%;
-            left: 31.25%;
-            right: 56.25%;
-        }
-        
-        #rh-511 {
-            position: absolute;
-            top: 0;
-            bottom: 17.65%;
-            left: 31.25%;
-            right: 56.25%;
-        }
-        
-        #rh-713 {
-            position: absolute;
-            top: 0;
-            bottom: 5.88%;
-            left: 43.75%;
-            right: 43.75;
-        }
-        
-        #rh-812 {
-            position: absolute;
-            top: 0;
-            bottom: 11.76%;
-            left: 50%;
-            right: 37.5%;
-        }
-        
-        #rh-901 {
-            position: absolute;
-            top: 0;
-            bottom: 76.47%;
-            left: 56.25%;
-            right: 31.25%;
-        }
-        
-        #rh-903 {
-            position: absolute;
-            top: 0;
-            bottom: 64.71%;
-            left: 56.25%;
-            right: 31.25%;
-        }
-        
-        #rh-905 {
-            position: absolute;
-            top: 0;
-            bottom: 52.94%;
-            left: 56.25%;
-            right: 31.25%;
-        }
-        
-        #rh-911 {
-            position: absolute;
-            top: 0;
-            bottom: 17.65%;
-            left: 56.25%;
-            right: 31.25%;
-        }
-        
-        #rh-913 {
-            position: absolute;
-            top: 0;
-            bottom: 5.88%;
-            left: 56.25%;
-            right: 31.25%;
-        }
-        
-        #rh-1002 {
-            position: absolute;
-            top: 0;
-            bottom: 70.59%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1004 {
-            position: absolute;
-            top: 0;
-            bottom: 58.82%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1006 {
-            position: absolute;
-            top: 0;
-            bottom: 47.06%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1008 {
-            position: absolute;
-            top: 0;
-            bottom: 35.29%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1010 {
-            position: absolute;
-            top: 0;
-            bottom: 23.53%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1012 {
-            position: absolute;
-            top: 0;
-            bottom: 11.76%;
-            left: 62.5%;
-            right: 25%;
-        }
-        
-        #rh-1101 {
-            position: absolute;
-            top: 0;
-            bottom: 76.47%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1103 {
-            position: absolute;
-            top: 0;
-            bottom: 64.71%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1105 {
-            position: absolute;
-            top: 0;
-            bottom: 52.94%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1107 {
-            position: absolute;
-            top: 0;
-            bottom: 41.18%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1109 {
-            position: absolute;
-            top: 0;
-            bottom: 29.41%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1111 {
-            position: absolute;
-            top: 0;
-            bottom: 17.65%;
-            left: 68.75%;
-            right: 18.75%;
-        }
-        
-        #rh-1202 {
-            position: absolute;
-            top: 0;
-            bottom: 70.59%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1204 {
-            position: absolute;
-            top: 0;
-            bottom: 58.82%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1206 {
-            position: absolute;
-            top: 0;
-            bottom: 47.06%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1208 {
-            position: absolute;
-            top: 0;
-            bottom: 35.29%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1210 {
-            position: absolute;
-            top: 0;
-            bottom: 23.53%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1212 {
-            position: absolute;
-            top: 0;
-            bottom: 11.76%;
-            left: 75%;
-            right: 12.5%;
-        }
-        
-        #rh-1303 {
-            position: absolute;
-            top: 0;
-            bottom: 64.71%;
-            left: 81.25%;
-            right: 6.25%;
-        }
-        
-        #rh-1305 {
-            position: absolute;
-            top: 0;
-            bottom: 52.94%;
-            left: 81.25%;
-            right: 6.25%;
-        }
-        
-        #rh-1307 {
-            position: absolute;
-            top: 0;
-            bottom: 41.18%;
-            left: 81.25%;
-            right: 6.25%;
-        }
-        
-        #rh-1309 {
-            position: absolute;
-            top: 0;
-            bottom: 29.41%;
-            left: 81.25%;
-            right: 6.25%;
-        }
-        
-        #rh-1309 {
-            position: absolute;
-            top: 0;
-            bottom: 17.65%;
-            left: 81.25%;
-            right: 6.25%;
-        }
-        
-        .item-button {
-            border: 3px hidden black;
-            cursor: pointer;
-        }
-        
-        #city-1 {
-            position: absolute;
-            top: 30%;
-            bottom: 60%;
-            left: 40%;
-            right: 55%;
-        }
-        
-        #dock-1 {
-            position: absolute;
-            top: 50%;
-            bottom: 40%;
-            left: 40%;
-            right: 55%;
-        }
-        
-        #farm-1 {
-            position: absolute;
-            top: 40%;
-            bottom: 50%;
-            left: 40%;
-            right: 55%;
-        }
-        
-        #power-1 {
-            position: absolute;
-            top: 60%;
-            bottom: 30%;
-            left: 40%;
-            right: 55%;
-        }
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.copyright {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.center-box {
+    position: absolute;
+    top: 41%;
+    bottom: 22%;
+    left: 33%;
+    right: 33%;
+    width: 34%;
+}
+
+.single-player-button {
+    position: absolute;
+    top: 0;
+    bottom: 60%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.multi-player-button {
+    position: absolute;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button-text-50 {
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.button-text-10 {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.levels-to-start-button {
+    position: absolute;
+    top: 6%;
+    bottom: 87%;
+    left: 5%;
+    right: 88%;
+    cursor: pointer;
+}
+
+.success-to-start-button {
+    position: absolute;
+    top: 2.5%;
+    bottom: 82.5%;
+    left: 3.8%;
+    right: 87.7%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+.success-to-levels-button {
+    position: absolute;
+    top: 84.5%;
+    bottom: 2.5%;
+    left: 38%;
+    right: 35.5%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+.levels-to-game-button {
+    position: absolute;
+    top: 86%;
+    bottom: 6%;
+    left: 8%;
+    right: 88%;
+    cursor: pointer;
+}
+
+.chapter-name {
+    position: absolute;
+    top: 4%;
+    bottom: 85%;
+    left: 71%;
+    right: 3%;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+
+#profile-box {
+    position: absolute;
+    top: 0;
+    bottom: 77.7%;
+    left: 0;
+    right: 87.7%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#time-box {
+    position: absolute;
+    top: 0;
+    bottom: 88.8%;
+    left: 12.3%;
+    right: 72%;
+    border: 3px hidden black;
+}
+
+#time-box p {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 30px;
+    transform: translate(0, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+#population-box {
+    position: absolute;
+    top: 0;
+    bottom: 88.8%;
+    left: 62.5%;
+    right: 25%;
+    border: 3px hidden black;
+}
+
+#population-box p {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 30px;
+    transform: translate(0, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+#resource-point-box {
+    position: absolute;
+    top: 0;
+    bottom: 88.8%;
+    left: 75%;
+    right: 12.3%;
+    border: 3px hidden black;
+}
+
+#resource-point-box p {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 30px;
+    transform: translate(0, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+#tech-point-box {
+    position: absolute;
+    top: 0;
+    bottom: 88.8%;
+    left: 87.7%;
+    right: 0;
+    border: 3px hidden black;
+}
+
+#tech-point-box p {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 30px;
+    transform: translate(0, -50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+#next-round-box {
+    position: absolute;
+    top: 77.7%;
+    bottom: 0;
+    left: 0;
+    right: 87.7%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#quiz-box {
+    position: absolute;
+    top: 83.5%;
+    bottom: 0;
+    left: 72.1%;
+    right: 18.6%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#list-box {
+    position: absolute;
+    top: 83.5%;
+    bottom: 0;
+    left: 81.4%;
+    right: 9.3%;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#tech-box {
+    position: absolute;
+    top: 83.5%;
+    bottom: 0;
+    left: 90.7%;
+    right: 0;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#shovel-box {
+    position: absolute;
+    top: 66.5%;
+    bottom: 16.5%;
+    left: 90.7%;
+    right: 0;
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+.center-popout-box {
+    position: absolute;
+    top: 11.2%;
+    bottom: 16.5%;
+    left: 12.3%;
+    right: 12.3%;
+    border: 3px hidden black;
+    padding: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quit-popout-box {
+    display: none;
+}
+
+#quit-game {
+    position: absolute;
+    top: 37%;
+    bottom: 53.5%;
+    left: 36%;
+    right: 36%;
+    border: 3px hidden black;
+    display: none;
+    cursor: pointer;
+}
+
+#quiz-popout-box {
+    display: none;
+    background-image: url(../img/quiz.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#quiz-content {
+    margin-top: 100px;
+    padding-left: 1O0px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz-text {
+    text-align: center;
+}
+
+.options {
+    position: absolute;
+}
+
+
+.btn-option{
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+
+}
+#true {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#false {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#quit-quiz {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 10%;
+}
+#MCQ {
+    display: none;;
+}
+
+#list-popout-box {
+    display: none;
+}
+
+#tech-popout-box {
+    display: none;
+}
+
+.main-grids {
+    position: absolute;
+    top: 12%;
+    bottom: 16%;
+    left: 21.5%;
+    right: 12.6%;
+    border: 3px hidden black;
+}
+
+.icon {
+    position: absolute;
+    bottom: 0;
+}
+
+.rhombus-holder {
+    border: 3px hidden gray;
+    align-items: center;
+}
+
+#rh-002 {
+    position: absolute;
+    top: 0;
+    bottom: 70.59%;
+    left: 0%;
+    right: 87.5%;
+}
+
+#rh-006 {
+    position: absolute;
+    top: 0;
+    bottom: 47.06%;
+    left: 0%;
+    right: 87.5%;
+}
+
+#rh-101 {
+    position: absolute;
+    top: 0;
+    bottom: 76.47%;
+    left: 6.25%;
+    right: 81.25%;
+}
+
+#rh-103 {
+    position: absolute;
+    top: 0;
+    bottom: 64.71%;
+    left: 6.25%;
+    right: 81.25%;
+}
+
+#rh-107 {
+    position: absolute;
+    top: 0;
+    bottom: 41.18%;
+    left: 6.25%;
+    right: 81.25%;
+}
+
+#rh-109 {
+    position: absolute;
+    top: 0;
+    bottom: 29.41%;
+    left: 6.25%;
+    right: 81.25%;
+}
+
+#rh-202 {
+    position: absolute;
+    top: 0;
+    bottom: 70.59%;
+    left: 12.5%;
+    right: 75%;
+}
+
+#rh-204 {
+    position: absolute;
+    top: 0;
+    bottom: 58.82%;
+    left: 12.5%;
+    right: 75%;
+}
+
+#rh-210 {
+    position: absolute;
+    top: 0;
+    bottom: 23.53%;
+    left: 12.5%;
+    right: 75%;
+}
+
+#rh-212 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 12.5%;
+    right: 75%;
+}
+
+#rh-311 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
+    left: 18.75%;
+    right: 68.75%;
+}
+
+#rh-313 {
+    position: absolute;
+    top: 0;
+    bottom: 5.88%;
+    left: 18.75%;
+    right: 68.75%;
+}
+
+#rh-412 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 25%;
+    right: 62.5%;
+}
+
+#rh-507 {
+    position: absolute;
+    top: 0;
+    bottom: 41.18%;
+    left: 31.25%;
+    right: 56.25%;
+}
+
+#rh-511 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
+    left: 31.25%;
+    right: 56.25%;
+}
+
+#rh-713 {
+    position: absolute;
+    top: 0;
+    bottom: 5.88%;
+    left: 43.75%;
+    right: 43.75;
+}
+
+#rh-812 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 50%;
+    right: 37.5%;
+}
+
+#rh-901 {
+    position: absolute;
+    top: 0;
+    bottom: 76.47%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
+#rh-903 {
+    position: absolute;
+    top: 0;
+    bottom: 64.71%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
+#rh-905 {
+    position: absolute;
+    top: 0;
+    bottom: 52.94%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
+#rh-911 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
+#rh-913 {
+    position: absolute;
+    top: 0;
+    bottom: 5.88%;
+    left: 56.25%;
+    right: 31.25%;
+}
+
+#rh-1002 {
+    position: absolute;
+    top: 0;
+    bottom: 70.59%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1004 {
+    position: absolute;
+    top: 0;
+    bottom: 58.82%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1006 {
+    position: absolute;
+    top: 0;
+    bottom: 47.06%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1008 {
+    position: absolute;
+    top: 0;
+    bottom: 35.29%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1010 {
+    position: absolute;
+    top: 0;
+    bottom: 23.53%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1012 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 62.5%;
+    right: 25%;
+}
+
+#rh-1101 {
+    position: absolute;
+    top: 0;
+    bottom: 76.47%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1103 {
+    position: absolute;
+    top: 0;
+    bottom: 64.71%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1105 {
+    position: absolute;
+    top: 0;
+    bottom: 52.94%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1107 {
+    position: absolute;
+    top: 0;
+    bottom: 41.18%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1109 {
+    position: absolute;
+    top: 0;
+    bottom: 29.41%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1111 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
+    left: 68.75%;
+    right: 18.75%;
+}
+
+#rh-1202 {
+    position: absolute;
+    top: 0;
+    bottom: 70.59%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1204 {
+    position: absolute;
+    top: 0;
+    bottom: 58.82%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1206 {
+    position: absolute;
+    top: 0;
+    bottom: 47.06%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1208 {
+    position: absolute;
+    top: 0;
+    bottom: 35.29%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1210 {
+    position: absolute;
+    top: 0;
+    bottom: 23.53%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1212 {
+    position: absolute;
+    top: 0;
+    bottom: 11.76%;
+    left: 75%;
+    right: 12.5%;
+}
+
+#rh-1303 {
+    position: absolute;
+    top: 0;
+    bottom: 64.71%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+#rh-1305 {
+    position: absolute;
+    top: 0;
+    bottom: 52.94%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+#rh-1307 {
+    position: absolute;
+    top: 0;
+    bottom: 41.18%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+#rh-1309 {
+    position: absolute;
+    top: 0;
+    bottom: 29.41%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+#rh-1309 {
+    position: absolute;
+    top: 0;
+    bottom: 17.65%;
+    left: 81.25%;
+    right: 6.25%;
+}
+
+.item-button {
+    border: 3px hidden black;
+    cursor: pointer;
+}
+
+#city-1 {
+    position: absolute;
+    top: 30%;
+    bottom: 60%;
+    left: 40%;
+    right: 55%;
+}
+
+#dock-1 {
+    position: absolute;
+    top: 50%;
+    bottom: 40%;
+    left: 40%;
+    right: 55%;
+}
+
+#farm-1 {
+    position: absolute;
+    top: 40%;
+    bottom: 50%;
+    left: 40%;
+    right: 55%;
+}
+
+#power-1 {
+    position: absolute;
+    top: 60%;
+    bottom: 30%;
+    left: 40%;
+    right: 55%;
+}

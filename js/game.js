@@ -38,6 +38,7 @@ function setCity() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
+        city1Unlock = true
         document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock City 1 technology with 5 tech points");
     }
@@ -57,6 +58,7 @@ function setDock() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
+        dock1Unlock = true
         document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock Dock 1 technology with 5 tech points");
     }
@@ -85,6 +87,7 @@ function setPower() {
     };
     if (techPoints >= 5) {
         techPoints -= 5;
+        power1Unlock = true;
         document.getElementById("tech-point").innerHTML = techPoints;
         alert("Unlock Power Plant 1 technology with 5 tech points");
     }

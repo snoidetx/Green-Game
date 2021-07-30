@@ -1,6 +1,6 @@
 window.transitionToPage = function(href) {
     document.querySelector('body').style.opacity = 0
-    setTimeout(function() { 
+    setTimeout(function() {
         window.location.href = href
     }, 500)
 }
@@ -73,7 +73,7 @@ function showQuit() {
 
     if (quit.style.display === "none") {
         quit.style.display = "block";
-        qg.style.display = "block";  
+        qg.style.display = "block";
     } else {
         quit.style.display = "none";
         qg.style.display = "none";
@@ -94,6 +94,67 @@ function showQuiz() {
         quiz.style.display = "block";
     } else {
         quiz.style.display = "none";
+    }
+    beginTheQuiz(); // Show quiz and then immediately begin quiz?
+}
+
+function beginTheQuiz() {
+    const trueBtn = document.getElementById("trueBtn")
+    const questionText = document.getElementById("questionText")
+    const falseBtn = document.getElementById("falseBtn")
+    const nextBtn = document.getElementById("next-question")
+    const TOTAL_QN = 2 // TODO change later
+    const questionIndex = -1
+    var userScore = 0
+    var questionPassed = []
+    const questions = [{
+            question: "first question text",
+            answers: [
+                { option: "True", answer: true },
+                { option: "False", answer: false }
+            ]
+        },
+        {
+            question: "second question text of which answer is false",
+            answers: [
+                { option: "True", answer: false },
+                { option: "False", answer: true }
+            ]
+        }
+    ]
+
+    currentQuestion = pickQuizQuestion(questionPassed, TOTAL_QN)
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+    nextBtn.style.display = "none"
+    trueBtn.onclick = () => {
+        let ano = 0;
+        if (questions[currentQuestion].answers[ano].answer) {
+            userScore += 1
+            nextBtn.style.display = "flex"
+            questionPassed.push(current)
+        }
+
+    }
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        let ano = 1;
+        if (questions[currentQuestion].answers[ano].answer) {
+            userScore += 1
+            nextBtn.style.display = "flex" // TODO  答对了可以答下一题，打错了这一轮不能再答题
+            questionPassed.push(current)
+        }
+    }
+
+    nextBtn.onclick = beginTheQuiz
+}
+
+function pickQuizQuestion(questionPassed, TOTAL_QN) {
+    currentQuestion = Math.floor(Math.random() * (TOTAL_QN - 1))
+    if (currentQuestion in questionPassed) {
+        pickQuizQuestion(questionPassed);
+    } else {
+        return currentQuestion;
     }
 }
 
@@ -150,7 +211,7 @@ function showSelect(name) {
 
 function hideSelect(name) {
     var box = document.getElementById(name);
-    if (name == "shovel-box" && onHand == "shovel") return; 
+    if (name == "shovel-box" && onHand == "shovel") return;
     box.style.backgroundColor = "gray";
     box.style.opacity = 0;
 }
@@ -187,14 +248,14 @@ function setRhombus() {
             let rh = document.getElementById("r_" + row + col);
             if (rh == null) continue;
             rh.style.position = "absolute";
-            var width = 2/16;
-            var height = 2/17;
+            var width = 2 / 16;
+            var height = 2 / 17;
             let top = (j + 1) * (height / 2) * 100;
             let bottom = 100 - top - height * 100;
             let left = i * (width / 2) * 100;
             let right = 100 - left - width * 100;
-            top = top + height / 2 * 100 -height / 2 * 2.449 / 2 * 100;
-            bottom = bottom + height / 2 * 100 -height / 2 * 2.449 / 2 * 100;
+            top = top + height / 2 * 100 - height / 2 * 2.449 / 2 * 100;
+            bottom = bottom + height / 2 * 100 - height / 2 * 2.449 / 2 * 100;
             left = left + width / 2 * 100 - width / 2 * 1.414 / 2 * 100;
             right = right + width / 2 * 100 - width / 2 * 1.414 / 2 * 100;
             rh.style.top = top.toString() + "%";
@@ -335,7 +396,9 @@ var resourcePoints = 0;
 var techPoints = 0;
 var earthquakeLikelihood, seaPollution, ecoImbalance;
 var arr;
-var conservation = 0, numClickDock = 0, qnsAnswered = 0;
+var conservation = 0,
+    numClickDock = 0,
+    qnsAnswered = 0;
 
 function initState() {
     numTech = 0;
@@ -408,7 +471,7 @@ function updateValues() {
     let population_old = arr[0];
     let seaPollution_old = arr[3];
     earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT;
-    let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old)/popCapacity) * population_old + population_old - randomDisaster(earthquakeLikelihood, population_old);
+    let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old) / popCapacity) * population_old + population_old - randomDisaster(earthquakeLikelihood, population_old);
     let ecoImbalance_old = arr[4];
     let seaPollution_new = (seaPollution_old + DOCK_POLL * numClickDock + CITY_POLL * numCity) * 1.01 - SEA_REC - conservation;
     if (seaPollution_new < SEA_MIN) {
@@ -440,13 +503,13 @@ function conserve() {
     conservation = 100;
 }
 
-function Tech(type = "forest", level = 1, techGen=0, resourceGen=0, price=500, numNeg=1, popCap=0) {
+function Tech(type = "forest", level = 1, techGen = 0, resourceGen = 0, price = 500, numNeg = 1, popCap = 0) {
     this.type = type;
     this.level = level;
     this.tech = techGen;
     this.gain = resourceGen;
     this.price = price;
-    this.popCap = popCap; 
+    this.popCap = popCap;
     this.num = numNeg;
 }
 
@@ -496,4 +559,3 @@ Tech.prototype.remove = function() {
         numFarm -= this.num;
     }
 }
-

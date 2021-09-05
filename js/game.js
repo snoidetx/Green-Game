@@ -618,7 +618,7 @@ function initState() {
 
 function nextRound() {
     updateValues();
-    alert(arr[1] + ",,," + arr[0] + ",,," + resourcePoints + ",,," + techPoints + ",,,");
+    // alert(arr[1] + ",,," + arr[0] + ",,," + resourcePoints + ",,," + techPoints + ",,,");
     document.getElementById("time").innerHTML = arr[1] + " year";
     document.getElementById("population").innerHTML = Math.round(arr[0]);
     document.getElementById("resource-point").innerHTML = resourcePoints;

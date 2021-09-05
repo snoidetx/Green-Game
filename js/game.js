@@ -479,7 +479,13 @@ function actEvent(name) {
         onHand = null;
         hideSelect('shovel-box');
     } else if (onHand == "city") {
-        if (ele.children.length != 0 || isDock) {
+        if (child) {
+            onHand = null;
+            alert("Land is occupied by " +
+                ele.children[0].alt + ".")
+            return;
+        } else if (isDock) {
+            alert("Cannot build cities too near to the beach.")
             onHand = null;
             return;
         }
@@ -493,7 +499,13 @@ function actEvent(name) {
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "farm") {
-        if (ele.children.length != 0 || isDock) {
+        if (child) {
+            onHand = null;
+            alert("Land is occupied by " +
+                ele.children[0].alt + ".")
+            return;
+        } else if (isDock) {
+            alert("Cannot farm too near to the beach.")
             onHand = null;
             return;
         }
@@ -506,7 +518,13 @@ function actEvent(name) {
         ele.appendChild(img);
         onHand = null;
     } else if (onHand == "dock") {
-        if (ele.children.length != 0 || !isDock) {
+        if (child) {
+            onHand = null;
+            alert("Land is occupied by " +
+                ele.children[0].alt + ".")
+            return;
+        } else if (!isDock) {
+            alert("Can only build docks along the coast.")
             onHand = null;
             return;
         }
@@ -519,7 +537,13 @@ function actEvent(name) {
         img.className = "icon";
         onHand = null;
     } else if (onHand == "powerplant") {
-        if (ele.children.length != 0 || isDock) {
+        if (child) {
+            onHand = null;
+            alert("Land is occupied by " +
+                ele.children[0].alt + ".")
+            return;
+        } else if (isDock) {
+            alert("Cannot build powerplants too near to the beach.")
             onHand = null;
             return;
         }
@@ -549,7 +573,7 @@ const EQ_COEFT = 0.1;
 const SEA_REC = 200;
 const SEA_MIN = 600;
 const DOCK_POLL = 100;
-const CITY_POLL = 200;
+const CITY_POLL = 60;
 const FOREST_ECOB = 50;
 const POWERP_ECOI = 200;
 const beach_arr = ["713", "913", "1012", "1212", "1311"];
@@ -594,7 +618,7 @@ function initState() {
 
 function nextRound() {
     updateValues();
-    // alert(arr[1] + ",,," + arr[0] + ",,," + resourcePoints + ",,,"+ techPoints + ",,,");
+    // alert(arr[1] + ",,," + arr[0] + ",,," + resourcePoints + ",,," + techPoints + ",,,");
     document.getElementById("time").innerHTML = arr[1] + " year";
     document.getElementById("population").innerHTML = Math.round(arr[0]);
     document.getElementById("resource-point").innerHTML = resourcePoints;
@@ -647,9 +671,12 @@ function updateValues() {
     let population_old = arr[0];
     let seaPollution_old = arr[3];
     earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT;
-    let mort = randomDisaster(earthquakeLikelihood, population_old);
+    let mort = Math.round(randomDisaster(earthquakeLikelihood, population_old));
     let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old) / popCapacity) * population_old + population_old - mort;
-    alert("Unfortunately, natural disasters killed " + mort + " people in the past decade.");
+    if (mort > 0) {
+        alert("Unfortunately, natural disasters killed " + mort + " people in the past decade.");
+    }
+    if (earthquakeLikelihood >= 1) { let pop_new = 0; }
     let ecoImbalance_old = arr[4];
     let seaPollution_new = (seaPollution_old + DOCK_POLL * numClickDock + CITY_POLL * numCity) * 1.01 - SEA_REC - conservation;
     if (seaPollution_new < SEA_MIN) {

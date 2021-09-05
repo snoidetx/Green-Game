@@ -671,11 +671,12 @@ function updateValues() {
     let population_old = arr[0];
     let seaPollution_old = arr[3];
     earthquakeLikelihood = (numPowerPlant + numFarm - numForest + numCity) * EQ_COEFT;
-    let mort = randomDisaster(earthquakeLikelihood, population_old);
+    let mort = Math.round(randomDisaster(earthquakeLikelihood, population_old));
     let pop_new = (FERT_BASE + numTech / TECH_MAX - seaPollution_old / SEA_MAX + (popCapacity - population_old) / popCapacity) * population_old + population_old - mort;
     if (mort > 0) {
         alert("Unfortunately, natural disasters killed " + mort + " people in the past decade.");
     }
+    if (earthquakeLikelihood >= 1) { let pop_new = 0; }
     let ecoImbalance_old = arr[4];
     let seaPollution_new = (seaPollution_old + DOCK_POLL * numClickDock + CITY_POLL * numCity) * 1.01 - SEA_REC - conservation;
     if (seaPollution_new < SEA_MIN) {
